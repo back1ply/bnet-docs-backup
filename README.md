@@ -4,7 +4,7 @@ An unofficial, browsable text archive of the [Battle.net Community Developer Por
 
 The portal now requires a Battle.net login just to read the docs. This repo keeps a public, searchable copy of the text: every guide, every API endpoint, and every parameter. It is refreshed automatically each week.
 
-**Browse it:** `https://<your-user>.github.io/<this-repo>/`
+**Browse it:** https://back1ply.github.io/bnet-docs-backup/
 
 > Not affiliated with, endorsed by, or supported by Blizzard Entertainment. All documentation content is © Blizzard Entertainment. Using the APIs themselves is governed by the [Blizzard Developer API Terms of Use](https://www.blizzard.com/en-us/legal/a2989b50-5f16-43b1-abec-2ae17cc09dd6/blizzard-developer-api-terms-of-use).
 
