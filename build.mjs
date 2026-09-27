@@ -47,19 +47,41 @@ const params = (ps, from) => '\n| Parameter | Type | Required | Default | Descri
   return `| \`${cell(p.name)}\` | ${cell(p.type)} | ${p.required ? 'Yes' : 'No'} | ${def ? `\`${cell(def)}\`` : ''} | ${fixMdLinks(cell(p.description), from)}${allowed} |`;
 }).join('\n') + '\n';
 
+// Home page: portal landing cards as a grid, with an icon and endpoint count per section.
+const ICONS = {
+  guides: 'book-open-variant', 'battle-net': 'shield-key', 'diablo-3': 'sword', hearthstone: 'cards-playing',
+  'starcraft-2': 'rocket-launch', 'world-of-warcraft': 'axe-battle', 'world-of-warcraft-classic': 'castle',
+  'streaming-provider-service': 'broadcast', 'getting-started': 'flag-checkered', 'using-oauth': 'key-variant',
+};
+const endpointCount = prefix => [...meta.keys()].filter(k => k === prefix || k.startsWith(prefix + '/'))
+  .reduce((n, k) => n + (read(`content/${k}.json`).resources || []).reduce((a, r) => a + (r.methods || []).length, 0), 0);
+
+const cards = (c, from) => {
+  let md = '';
+  for (const s of c.sections || []) {
+    md += `## ${s.title}\n\n<div class="grid cards" markdown>\n\n` + (s.cardPages || []).map(cp => {
+      const link = meta.has(cp.path) ? rel(from, cp.path) : `${SITE}/${cp.path}`;
+      const n = endpointCount(cp.path);
+      return `-   :material-${ICONS[cp.path.split('/').pop()] || 'file-document'}:{ .lg .middle } __[${cp.cardTitle || cp.title}](${link})__\n\n    ---\n\n    ${esc(cp.cardDescription || '')}` +
+        (n ? `\n\n    <span class="count">${n} endpoints</span>` : '');
+    }).join('\n\n') + '\n\n</div>\n\n';
+  }
+  return md;
+};
+
+const renderHome = c => `---\nhide:\n  - navigation\n  - toc\n---\n\n# Battle.net API docs archive\n\n` +
+  `An unofficial copy of the [Battle.net Community Developer Portal](${SITE}/documentation) documentation. The portal now asks you to log in to read it; this archive doesn't. It covers every guide, endpoint and parameter, and is refreshed weekly. Press ++slash++ to search it.\n\n` +
+  cards(c, 'documentation') +
+  `<p class="source">Not affiliated with Blizzard Entertainment. All documentation content belongs to Blizzard.</p>\n`;
+
 function render(p) {
   const c = read(`content/${p}.json`), m = meta.get(p);
-  let md = `# ${p === 'documentation' ? 'Battle.net API docs archive' : m.title || p}\n\n`;
-  if (p === 'documentation') md += `An unofficial copy of the [Battle.net Community Developer Portal](${SITE}/documentation) documentation. The portal now asks you to log in to read it; this archive doesn't. It covers every guide, endpoint and parameter, refreshed weekly.\n\n!!! note\n    Not affiliated with Blizzard Entertainment. All documentation content belongs to Blizzard.\n\n`;
-  else md += `<p class="source">Original page: <a href="${SITE}/${p}">${SITE.replace('https://', '')}/${p}</a></p>\n\n`;
+  if (p === 'documentation') return renderHome(c);
+  let md = `# ${m.title || p}\n\n`;
+  md +=`<p class="source">Original page: <a href="${SITE}/${p}">${SITE.replace('https://', '')}/${p}</a></p>\n\n`;
   if (!c.html && m.description && p !== 'documentation') md += `${esc(m.description)}\n\n`;
   if (c.html) md += `<div class="portal-html">\n${fixLinks(c.html, p)}\n</div>\n\n`;
-  for (const s of c.sections || []) {
-    md += `## ${s.title}\n\n` + (s.cardPages || []).map(cp => {
-      const link = meta.has(cp.path) ? rel(p, cp.path) : `${SITE}/${cp.path}`;
-      return `- [${cp.cardTitle || cp.title}](${link})${cp.cardDescription ? `: ${esc(cp.cardDescription)}` : ''}`;
-    }).join('\n') + '\n\n';
-  }
+  md += cards(c, p);
   for (const r of c.resources || []) {
     md += `## ${r.name}\n\n`;
     for (const e of r.methods || []) {

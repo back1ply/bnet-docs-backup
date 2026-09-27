@@ -30,6 +30,8 @@
 .md-typeset .endpoint .cn {
   font-size: .7rem; color: var(--md-default-fg-color--light);
 }
+.md-typeset .grid.cards .count { font-size: .7rem; color: var(--md-default-fg-color--light); }
+.md-typeset .grid.cards .lg { color: var(--md-accent-fg-color); }
 .md-typeset .source { font-size: .72rem; color: var(--md-default-fg-color--light); }
 
 /* Each endpoint heading gets a divider so long reference pages scan easily. */
