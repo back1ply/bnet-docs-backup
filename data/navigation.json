@@ -1,0 +1,618 @@
+{
+  "path": "documentation",
+  "page": {
+    "title": "Documentation",
+    "description": "Explore our APIs and discover the powerful experiences you can craft. Read our guides to learn how to integrate and get started accessing our data.",
+    "heroTitle": "Discover Power",
+    "heroDescription": "Learn how to access our data.",
+    "heroImage": "api/pages/page-images/documentation-hero.9554e043cf6922ec6f1bd009e76e7681.jpg",
+    "heroImageBackgroundColor": "#09090c",
+    "cardTitle": "View API Documentation",
+    "cardDescription": "Read our Getting Started guide and learn how to use OAuth to access our APIs. Discover how our APIs work, and all the amazing things you can do.",
+    "cardImage": "api/pages/page-images/documentation-card.e946b65c5821072d3ad75297fdb05f18.jpg",
+    "cardIcon": "book",
+    "contentType": "landing",
+    "path": "documentation"
+  },
+  "expandable": true,
+  "expanded": true,
+  "children": [
+    {
+      "path": "documentation/guides",
+      "page": {
+        "title": "Using APIs",
+        "cardLinkText": "View All Guides",
+        "contentType": "landing",
+        "path": "documentation/guides"
+      },
+      "expandable": true,
+      "expanded": true,
+      "children": [
+        {
+          "path": "documentation/guides/getting-started",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Getting Started",
+            "cardTitle": "Getting Started",
+            "cardDescription": "Learn how to set up your OAuth client ID and secret, manage your clients, and make API requests.",
+            "cardImage": "api/pages/page-images/getting-started-card.321b4bde340cac2f71e03417a6f7e075.png",
+            "path": "documentation/guides/getting-started"
+          },
+          "children": []
+        },
+        {
+          "path": "documentation/guides/using-oauth",
+          "page": {
+            "title": "Using OAuth",
+            "cardTitle": "Using OAuth",
+            "cardDescription": "Learn about Battle.net APIs OAuth requirements and libraries. Understand authorization code and client credential flows for your sites.",
+            "cardImage": "api/pages/page-images/using-oauth-card.c0dfd1d818b959904aaecd70510a465b.png",
+            "path": "documentation/guides/using-oauth"
+          },
+          "expandable": true,
+          "expanded": true,
+          "children": [
+            {
+              "path": "documentation/guides/using-oauth/client-credentials-flow",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Client Credentials Flow",
+                "cardDescription": "Details about integrating the OAuth2 client credentials flow.",
+                "path": "documentation/guides/using-oauth/client-credentials-flow"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/guides/using-oauth/authorization-code-flow",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Authorization Code Flow",
+                "cardDescription": "Details about integrating the OAuth2 authorization code flow.",
+                "path": "documentation/guides/using-oauth/authorization-code-flow"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/guides/using-oauth/oidc-endpoints",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Support for OpenID Connect",
+                "menuTitle": "OpenID Connect",
+                "cardTitle": "OpenID Connect",
+                "cardDescription": "Details about Battle.net OAuth Provider support for OpenID Connect (OIDC).",
+                "path": "documentation/guides/using-oauth/oidc-endpoints"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/guides/using-oauth/example-applications",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Example Applications",
+                "cardDescription": "Example applications demonstrating how to use OAuth in various languages.",
+                "path": "documentation/guides/using-oauth/example-applications"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "path": "documentation/guides/game-data-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Game Data APIs",
+            "cardDescription": "Get the basics on how Game Data APIs work to get information like Mythic Dungeon leaderboards.",
+            "path": "documentation/guides/game-data-apis"
+          },
+          "children": []
+        },
+        {
+          "path": "documentation/guides/community-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Community APIs",
+            "cardDescription": "Read about Community APIs and how they get information about player profiles and other data.",
+            "path": "documentation/guides/community-apis"
+          },
+          "children": []
+        },
+        {
+          "path": "documentation/guides/regionality-and-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Regionality and APIs",
+            "cardTitle": "Regionality and APIs",
+            "cardDescription": "Discover the ways Battle.net uses region-based concepts to deliver game data to consumers.",
+            "path": "documentation/guides/regionality-and-apis"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "documentation/battle-net",
+      "page": {
+        "title": "Battle.net",
+        "icon": "battlenet",
+        "iconColor": "primary",
+        "cardDescription": "Read about the Battle.net APIs that support OAuth authentication.",
+        "contentType": "landing",
+        "path": "documentation/battle-net"
+      },
+      "expandable": true,
+      "expanded": true,
+      "children": [
+        {
+          "path": "documentation/battle-net/oauth-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Battle.net OAuth APIs",
+            "menuTitle": "OAuth APIs",
+            "cardTitle": "OAuth APIs",
+            "cardDescription": "Endpoints used for OAuth 2.0 authentication flows.",
+            "contentType": "api-reference",
+            "path": "documentation/battle-net/oauth-apis"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "documentation/diablo-3",
+      "page": {
+        "title": "Diablo III",
+        "icon": "diablo3",
+        "cardDescription": "Read about the Diablo III APIs that you can use to get player profile, act, crafting, season, and other types of data.",
+        "contentType": "landing",
+        "path": "documentation/diablo-3"
+      },
+      "expandable": true,
+      "expanded": true,
+      "children": [
+        {
+          "path": "documentation/diablo-3/community-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Diablo III Community APIs",
+            "menuTitle": "Community APIs",
+            "cardTitle": "Community APIs",
+            "cardDescription": "Endpoints for Diablo III player profiles, acts, crafting, classes, skills, followers, and items.",
+            "contentType": "api-reference",
+            "path": "documentation/diablo-3/community-apis"
+          },
+          "children": []
+        },
+        {
+          "path": "documentation/diablo-3/community-apis-cn",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Diablo III Community APIs – CN",
+            "menuTitle": "Community APIs – CN",
+            "cardTitle": "Community APIs – CN",
+            "cardDescription": "CN endpoints for Diablo III player profiles, acts, crafting, classes, skills, followers, and items.",
+            "contentType": "api-reference",
+            "path": "documentation/diablo-3/community-apis-cn"
+          },
+          "children": []
+        },
+        {
+          "path": "documentation/diablo-3/game-data-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Diablo III Game Data APIs",
+            "menuTitle": "Game Data APIs",
+            "cardTitle": "Game Data APIs",
+            "cardDescription": "Endpoints for Diablo III seasons, eras, and leaderboards.",
+            "contentType": "api-reference",
+            "path": "documentation/diablo-3/game-data-apis"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "documentation/hearthstone",
+      "page": {
+        "title": "Hearthstone",
+        "cardDescription": "Read about the Hearthstone APIs that you can use to get card, deck, and other types of data.",
+        "icon": "hearthstone",
+        "contentType": "landing",
+        "path": "documentation/hearthstone"
+      },
+      "expandable": true,
+      "expanded": true,
+      "children": [
+        {
+          "path": "documentation/hearthstone/guides",
+          "page": {
+            "title": "Hearthstone Guides",
+            "menuTitle": "Guides",
+            "contentType": "landing",
+            "path": "documentation/hearthstone/guides"
+          },
+          "expandable": true,
+          "expanded": true,
+          "children": [
+            {
+              "path": "documentation/hearthstone/guides/localization",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Hearthstone Localization",
+                "menuTitle": "Localization",
+                "cardTitle": "Localization",
+                "cardDescription": "Information about localization in Hearthstone Game Data APIs.",
+                "path": "documentation/hearthstone/guides/localization"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/hearthstone/guides/metadata",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Hearthstone Metadata",
+                "menuTitle": "Metadata",
+                "cardTitle": "Metadata",
+                "cardDescription": "How to discover extra information about non-card game data.",
+                "path": "documentation/hearthstone/guides/metadata"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/hearthstone/guides/card-search",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Hearthstone Card Search",
+                "menuTitle": "Card Search",
+                "cardTitle": "Card Search",
+                "cardDescription": "Tips and best practices for searching cards.",
+                "path": "documentation/hearthstone/guides/card-search"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/hearthstone/guides/game-modes",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Hearthstone Game Modes",
+                "menuTitle": "Game Modes",
+                "cardTitle": "Game Modes",
+                "cardDescription": "Finding cards for different game modes.",
+                "path": "documentation/hearthstone/guides/game-modes"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/hearthstone/guides/card-backs",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Hearthstone Card Backs",
+                "menuTitle": "Card Backs",
+                "cardTitle": "Card Backs",
+                "cardDescription": "How to search for Hearthstone card backs.",
+                "path": "documentation/hearthstone/guides/card-backs"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/hearthstone/guides/decks",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "Retrieving Hearthstone Decks",
+                "menuTitle": "Retrieving Decks",
+                "cardTitle": "Retrieving Decks",
+                "cardDescription": "How to find and use Hearthstone deck codes.",
+                "path": "documentation/hearthstone/guides/decks"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "path": "documentation/hearthstone/game-data-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "Hearthstone Game Data APIs",
+            "menuTitle": "Game Data APIs",
+            "cardTitle": "Game Data APIs",
+            "cardDescription": "Endpoints for Hearthstone cards, decks, and metadata.",
+            "contentType": "api-reference",
+            "path": "documentation/hearthstone/game-data-apis"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "documentation/starcraft-2",
+      "page": {
+        "title": "StarCraft II",
+        "icon": "starcraft2",
+        "iconColor": "primary",
+        "cardDescription": "Read about the StarCraft II APIs that you can use to get player profile, ladder, achievement, and other types of data.",
+        "contentType": "landing",
+        "path": "documentation/starcraft-2"
+      },
+      "expandable": true,
+      "expanded": true,
+      "children": [
+        {
+          "path": "documentation/starcraft-2/community-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "StarCraft II Community APIs",
+            "menuTitle": "Community APIs",
+            "cardTitle": "Community APIs",
+            "cardDescription": "Endpoints for StarCraft II player profiles, ladder data, and achievements.",
+            "contentType": "api-reference",
+            "path": "documentation/starcraft-2/community-apis"
+          },
+          "children": []
+        },
+        {
+          "path": "documentation/starcraft-2/game-data-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "StarCraft II Game Data APIs",
+            "menuTitle": "Game Data APIs",
+            "cardTitle": "Game Data APIs",
+            "cardDescription": "Endpoints for StarCraft II league data.",
+            "contentType": "api-reference",
+            "path": "documentation/starcraft-2/game-data-apis"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "documentation/world-of-warcraft",
+      "page": {
+        "title": "World of Warcraft",
+        "icon": "worldofwarcraft",
+        "cardDescription": "Read about the World of Warcraft APIs that you can use to get character profile, realm, pet, creature, achievement, and other types of data.",
+        "contentType": "landing",
+        "path": "documentation/world-of-warcraft"
+      },
+      "expandable": true,
+      "expanded": true,
+      "children": [
+        {
+          "path": "documentation/world-of-warcraft/guides",
+          "page": {
+            "title": "World of Warcraft Guides",
+            "menuTitle": "Guides",
+            "contentType": "landing",
+            "path": "documentation/world-of-warcraft/guides"
+          },
+          "expandable": true,
+          "expanded": true,
+          "children": [
+            {
+              "path": "documentation/world-of-warcraft/guides/namespaces",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Namespaces",
+                "menuTitle": "Namespaces",
+                "cardTitle": "Namespaces",
+                "cardDescription": "Information about the use of namespaces in World of Warcraft Game Data and Profile APIs.",
+                "path": "documentation/world-of-warcraft/guides/namespaces"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft/guides/known-issues",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Known Issues",
+                "menuTitle": "Known Issues",
+                "cardTitle": "Known Issues",
+                "cardDescription": "Known issues for World of Warcraft Game Data APIs.",
+                "path": "documentation/world-of-warcraft/guides/known-issues"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft/guides/localization",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Localization",
+                "menuTitle": "Localization",
+                "cardTitle": "Localization",
+                "cardDescription": "Specific information about localization in World of Warcraft Game Data APIs.",
+                "path": "documentation/world-of-warcraft/guides/localization"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft/guides/media-documents",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Media Documents",
+                "menuTitle": "Media Documents",
+                "cardTitle": "Media Documents",
+                "cardDescription": "Guidelines for using media documents that Game Data APIs return.",
+                "path": "documentation/world-of-warcraft/guides/media-documents"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft/guides/character-renders",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Character Renders",
+                "menuTitle": "Character Renders",
+                "cardTitle": "Character Renders",
+                "cardDescription": "Instructions for rendering World of Warcraft character thumbnails.",
+                "path": "documentation/world-of-warcraft/guides/character-renders"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft/guides/search",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Search",
+                "menuTitle": "Search",
+                "cardTitle": "Search",
+                "cardDescription": "Information about the use of search in World of Warcraft Game Data APIs.",
+                "path": "documentation/world-of-warcraft/guides/search"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "path": "documentation/world-of-warcraft/game-data-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "World of Warcraft Game Data APIs",
+            "menuTitle": "Game Data APIs",
+            "cardTitle": "Game Data APIs",
+            "cardDescription": "Endpoints for World of Warcraft Mythics, realms, and other game information.",
+            "contentType": "api-reference",
+            "path": "documentation/world-of-warcraft/game-data-apis"
+          },
+          "children": []
+        },
+        {
+          "path": "documentation/world-of-warcraft/profile-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "World of Warcraft Profile APIs",
+            "menuTitle": "Profile APIs",
+            "cardTitle": "Profile APIs",
+            "cardDescription": "Endpoints for World of Warcraft character profiles, including Mythic Keystone profiles and seasonal profiles.",
+            "contentType": "api-reference",
+            "path": "documentation/world-of-warcraft/profile-apis"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "documentation/world-of-warcraft-classic",
+      "page": {
+        "title": "World of Warcraft Classic",
+        "icon": "worldofwarcraft",
+        "cardDescription": "Read about the World of Warcraft Classic APIs that you can use to get class, race, and other types of data.",
+        "contentType": "landing",
+        "path": "documentation/world-of-warcraft-classic"
+      },
+      "expandable": true,
+      "expanded": true,
+      "children": [
+        {
+          "path": "documentation/world-of-warcraft-classic/guides",
+          "page": {
+            "title": "World of Warcraft Classic Guides",
+            "menuTitle": "Guides",
+            "contentType": "landing",
+            "extend": "documentation/world-of-warcraft/guides",
+            "path": "documentation/world-of-warcraft-classic/guides"
+          },
+          "expandable": true,
+          "expanded": true,
+          "children": [
+            {
+              "path": "documentation/world-of-warcraft-classic/guides/namespaces",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Classic Namespaces",
+                "menuTitle": "Namespaces",
+                "cardTitle": "Namespaces",
+                "cardDescription": "Information about the use of namespaces in World of Warcraft Classic Game Data APIs.",
+                "path": "documentation/world-of-warcraft-classic/guides/namespaces"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft-classic/guides/known-issues",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Classic Known Issues",
+                "menuTitle": "Known Issues",
+                "cardTitle": "Known Issues",
+                "cardDescription": "Known issues for World of Warcraft Classic Game Data APIs.",
+                "path": "documentation/world-of-warcraft-classic/guides/known-issues"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft-classic/guides/localization",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Classic Localization",
+                "menuTitle": "Localization",
+                "cardTitle": "Localization",
+                "cardDescription": "Specific information about localization in World of Warcraft Game Data APIs.",
+                "extend": "documentation/world-of-warcraft/guides/localization",
+                "path": "documentation/world-of-warcraft-classic/guides/localization"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft-classic/guides/media-documents",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Classic Media Documents",
+                "menuTitle": "Media Documents",
+                "cardTitle": "Media Documents",
+                "cardDescription": "Guidelines for using media documents that Game Data APIs return.",
+                "extend": "documentation/world-of-warcraft/guides/media-documents",
+                "path": "documentation/world-of-warcraft-classic/guides/media-documents"
+              },
+              "children": []
+            },
+            {
+              "path": "documentation/world-of-warcraft-classic/guides/search",
+              "page": {
+                "$schema": "../../../../../schema/dev-portal-page.json",
+                "title": "World of Warcraft Classic Search",
+                "menuTitle": "Search",
+                "cardTitle": "Search",
+                "cardDescription": "Information about the use of search in World of Warcraft Game Data APIs.",
+                "extend": "documentation/world-of-warcraft/guides/search",
+                "path": "documentation/world-of-warcraft-classic/guides/search"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "path": "documentation/world-of-warcraft-classic/game-data-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "World of Warcraft Classic Game Data APIs",
+            "menuTitle": "Game Data APIs",
+            "cardTitle": "Game Data APIs",
+            "cardDescription": "Endpoints for World of Warcraft Classic classes, races, items, and other game information.",
+            "contentType": "api-reference",
+            "path": "documentation/world-of-warcraft-classic/game-data-apis"
+          },
+          "children": []
+        },
+        {
+          "path": "documentation/world-of-warcraft-classic/profile-apis",
+          "page": {
+            "$schema": "../../../../schema/dev-portal-page.json",
+            "title": "World of Warcraft Profile APIs",
+            "menuTitle": "Profile APIs",
+            "cardTitle": "Profile APIs",
+            "cardDescription": "Endpoints for World of Warcraft character profiles, including Mythic Keystone profiles and seasonal profiles.",
+            "contentType": "api-reference",
+            "path": "documentation/world-of-warcraft-classic/profile-apis"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "documentation/streaming-provider-service",
+      "page": {
+        "$schema": "../../../../schema/dev-portal-page.json",
+        "title": "Streaming Provider Service Summary",
+        "path": "documentation/streaming-provider-service"
+      },
+      "children": []
+    }
+  ]
+}

@@ -10,18 +10,7 @@ The portal now requires a Battle.net login just to read the docs. This repo keep
 
 ## What's covered
 
-| Section | Contents |
-|---|---|
-| Guides | Getting started, using OAuth (authorization code, client credentials, OIDC endpoints, example apps), community vs. game data APIs, regionality |
-| Battle.net | OAuth APIs |
-| World of Warcraft | Game Data APIs, Profile APIs, guides (namespaces, search, media, localization, character renders, known issues) |
-| WoW Classic | Game Data APIs, Profile APIs, guides |
-| Diablo III | Community APIs (including CN), Game Data APIs |
-| Hearthstone | Game Data APIs, guides (card search, decks, card backs, metadata, game modes, localization) |
-| StarCraft II | Community APIs, Game Data APIs |
-| Streaming Provider Service | Overview |
-
-The archive holds 49 pages in total. Every endpoint is listed with its HTTP method, path, description, and a table of its parameters: name, type, whether it is required, default value, and description.
+Everything under the portal's Documentation section: the general guides (getting started, OAuth, regionality), the Battle.net OAuth APIs, and the guides and API references for World of Warcraft, WoW Classic, Diablo III, Hearthstone and StarCraft II. Every endpoint is listed with its HTTP method, path, description and parameters. The [site](https://back1ply.github.io/bnet-docs-backup/) shows the current page list and endpoint counts.
 
 Only text is archived. Images and links to portal pages outside the archive still point to Blizzard's servers.
 
@@ -35,9 +24,9 @@ Only text is archived. Images and links to portal pages outside the archive stil
 ## Repository layout
 
 ```
-data/                   source of truth: the portal's JSON, stored byte for byte
-  navigation/...json    page tree (loaded lazily per section)
-  content/...json       page content: { html, sections, resources[].methods[] }
+data/                   source of truth, the only content in the repo
+  navigation.json       page tree: titles, order, descriptions
+  content/...json       page content, stored exactly as the portal sends it
 fetch.mjs               portal API -> data/
 build.mjs               data/ -> Markdown site sources in build/ (not committed)
 mkdocs.base.yml         site config (theme, search, palette)
@@ -52,10 +41,10 @@ Only `data/` holds content. Everything the site shows is generated from it, so `
 
 The portal is a single-page app. Its login wall only applies to the UI, while its page data comes from a public JSON API:
 
-- `GET /api/pages/navigation/<path>.json` returns the page tree.
+- `GET /api/pages/navigation/<path>.json` returns the page tree. The tree loads lazily, so collapsed sections need their own request, and every response repeats the tree from the root.
 - `GET /api/pages/content/<path>.json` returns the guide HTML, the landing-page cards and the endpoint definitions.
 
-1. `fetch.mjs` walks the navigation tree from `documentation` and saves every page's raw JSON into `data/`.
+1. `fetch.mjs` walks the navigation tree from `documentation` and merges the lazy responses into a single `data/navigation.json`. It drops the copy of each API page's endpoints that the navigation embeds, because `content/` already holds the full page. Each page's content is saved unchanged into `data/content/`.
 2. `build.mjs` reads `data/` and writes one Markdown page per portal page into `build/docs/`. It also writes `build/mkdocs.yml`, which inherits `mkdocs.base.yml` and adds a sidebar that follows the portal's own order and labels. Links between archived pages are rewritten to point at the local copies. Other portal links go to the live site.
 3. [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) turns that into the static site, with tabs per game, full-text search and a light/dark toggle.
 

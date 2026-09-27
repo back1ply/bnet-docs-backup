@@ -27,18 +27,22 @@ const TMP = 'data.tmp';
 fs.rmSync(TMP, { recursive: true, force: true });
 const save = (f, s) => { f = path.join(TMP, f); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); };
 
-// Navigation is lazy: expandable nodes without children have their own navigation file.
-const pages = new Set(), seen = new Set();
-async function nav(p) {
-  if (seen.has(p)) return; seen.add(p);
-  const raw = await get('navigation/' + p); save(`navigation/${p}.json`, raw);
-  const walk = async n => {
-    if (n.path?.startsWith('documentation')) pages.add(n.path);
-    for (const c of n.children || []) { if (c.expandable && !(c.children || []).length) await nav(c.path); await walk(c); }
-  };
-  await walk(JSON.parse(raw));
+// Navigation is lazy: a collapsed node (expandable, no children) must be fetched on its own,
+// and each response repeats the whole tree from the root. Merge them into one tree.
+// Nav nodes of API pages also embed a copy of their endpoints (page.content); content/ has
+// the full page, so that copy is dropped to keep one source of truth.
+const find = (n, p) => n.path === p ? n : (n.children || []).reduce((hit, c) => hit || find(c, p), null);
+const pages = new Set();
+async function expand(node) {
+  if (node.expandable && !(node.children || []).length) node = find(JSON.parse(await get('navigation/' + node.path)), node.path);
+  pages.add(node.path);
+  const children = [];
+  for (const c of node.children || []) children.push(await expand(c));
+  const { content, ...page } = node.page || {};
+  return { ...node, page, children };
 }
-await nav('documentation');
+const tree = await expand(find(JSON.parse(await get('navigation/documentation')), 'documentation'));
+save('navigation.json', JSON.stringify(tree, null, 2) + '\n');
 
 for (const p of pages) save(`content/${p}.json`, await get('content/' + p));
 

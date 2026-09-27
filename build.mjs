@@ -8,18 +8,14 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 const cell = s => esc(s).replace(/\|/g, '\\|').replace(/\s*\n\s*/g, ' ');
 const save = (f, s) => { f = path.join(OUT, f); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); };
 
-// Rebuild the page tree from the saved navigation files, in portal order.
-const find = (n, p) => n.path === p ? n : (n.children || []).reduce((hit, c) => hit || find(c, p), null);
+// Page tree in portal order, from the merged navigation fetch.mjs saved.
 const meta = new Map(), kids = new Map();
-// Collapsed nodes (expandable, no children listed) have their own navigation file, like fetch.mjs saw them.
 function walk(node) {
-  if (node.expandable && !(node.children || []).length) node = find(read(`navigation/${node.path}.json`), node.path);
   meta.set(node.path, node.page || {});
-  const children = (node.children || []).filter(c => c.path.startsWith('documentation'));
-  if (children.length) kids.set(node.path, children.map(c => c.path));
-  children.forEach(walk);
+  if (node.children.length) kids.set(node.path, node.children.map(c => c.path));
+  node.children.forEach(walk);
 }
-walk(find(read('navigation/documentation.json'), 'documentation'));
+walk(read('navigation.json'));
 
 // documentation (the portal landing page) becomes the site home.
 const fileOf = p => p === 'documentation' ? 'index.md' : kids.has(p) ? `${p}/index.md` : `${p}.md`;
