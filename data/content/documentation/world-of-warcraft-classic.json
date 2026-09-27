@@ -1,0 +1,71 @@
+{
+  "sections": [
+    {
+      "title": "Guides",
+      "cards": [
+        "guides/namespaces",
+        "guides/known-issues",
+        "guides/localization",
+        "guides/media-documents",
+        "guides/search"
+      ],
+      "cardPages": [
+        {
+          "title": "World of Warcraft Classic Namespaces",
+          "menuTitle": "Namespaces",
+          "cardTitle": "Namespaces",
+          "cardDescription": "Information about the use of namespaces in World of Warcraft Classic Game Data APIs.",
+          "path": "documentation/world-of-warcraft-classic/guides/namespaces"
+        },
+        {
+          "title": "World of Warcraft Classic Known Issues",
+          "menuTitle": "Known Issues",
+          "cardTitle": "Known Issues",
+          "cardDescription": "Known issues for World of Warcraft Classic Game Data APIs.",
+          "path": "documentation/world-of-warcraft-classic/guides/known-issues"
+        },
+        {
+          "title": "World of Warcraft Classic Localization",
+          "menuTitle": "Localization",
+          "cardTitle": "Localization",
+          "cardDescription": "Specific information about localization in World of Warcraft Game Data APIs.",
+          "extend": "documentation/world-of-warcraft/guides/localization",
+          "path": "documentation/world-of-warcraft-classic/guides/localization"
+        },
+        {
+          "title": "World of Warcraft Classic Media Documents",
+          "menuTitle": "Media Documents",
+          "cardTitle": "Media Documents",
+          "cardDescription": "Guidelines for using media documents that Game Data APIs return.",
+          "extend": "documentation/world-of-warcraft/guides/media-documents",
+          "path": "documentation/world-of-warcraft-classic/guides/media-documents"
+        },
+        {
+          "title": "World of Warcraft Classic Search",
+          "menuTitle": "Search",
+          "cardTitle": "Search",
+          "cardDescription": "Information about the use of search in World of Warcraft Game Data APIs.",
+          "extend": "documentation/world-of-warcraft/guides/search",
+          "path": "documentation/world-of-warcraft-classic/guides/search"
+        }
+      ]
+    },
+    {
+      "title": "API Reference",
+      "cards": [
+        "game-data-apis"
+      ],
+      "cardPages": [
+        {
+          "title": "World of Warcraft Classic Game Data APIs",
+          "menuTitle": "Game Data APIs",
+          "cardTitle": "Game Data APIs",
+          "cardDescription": "Endpoints for World of Warcraft Classic classes, races, items, and other game information.",
+          "contentType": "api-reference",
+          "path": "documentation/world-of-warcraft-classic/game-data-apis"
+        }
+      ]
+    }
+  ],
+  "html": "<p>World of Warcraft Classic provides APIs to access game data, including information about creatures, classes, races, items, and so on.</p>\n<p>Before you can use the APIs, you must set up your client and secret as described in <a href=\"../guides/getting-started\">Getting Started</a>.</p>\n"
+}

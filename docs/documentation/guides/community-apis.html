@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Community APIs · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../style.css"></head><body>
+<nav><a href="../../index.html">Battle.net API docs archive</a></nav>
+<h1>Community APIs</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/guides/community-apis">https://community.developer.battle.net/documentation/guides/community-apis</a></small></p>
+<p>Community APIs provide a way for applications and websites to access game data about a player's account, such as characters and gameplay progress. Blizzard currently offers Community APIs for StarCraft II, and Diablo III. Developers can use APIs to retrieve the following types of game data:</p>
+
+    <ul>
+      <li>StarCraft II: player profiles, ladder information, and match history.</li>
+      <li>Diablo III: player hero information, character class and skill information, and crafting recipes.</li>
+    </ul>
+
+<h2>Format</h2>
+<p>APIs return data in JSON format and some responses contain resource URLs. To obtain all the desired data, API consumers must make several requests to related resources by following links in the originally requested resources.</p>
+
+<h2>Regions and locales</h2>
+<p>API data is limited to specific regions. For example, US APIs accessed through us.battle.net only contain US battlegroup and realm data. Locale support is limited to locations supported on Blizzard community game sites.</p>
+
+<p>To access a different region, provide the <strong>locale</strong> query parameter. For example, the URL for the European Diablo III item type list localized in French uses this format:</p>
+
+<pre><code class="language-markup">http://eu.api.blizzard.com/d3/data/item-type?locale=fr_FR</code></pre>
+
+<p>For specific information about regions and locales, see <a href="../../documentation/guides/regionality-and-apis.html">Regionality and APIs</a>.</p>
+
+
+<h2>Authentication and Throttling</h2>
+<p>For authentication instructions and implementation details, see <a href="../../documentation/guides/using-oauth.html">Using OAuth</a>.</p>
+
+<p>API clients are limited to <strong>36,000 requests per hour</strong> at a rate of <strong>100 requests per second</strong>. Exceeding the hourly quota results in slower service until traffic decreases. Exceeding the per-second limit results in a <strong>429 error</strong> for the remainder of the second until the quota refreshes.</p>
+
+<p>API consumers are limited to 36,000 requests per hour at a rate of 100 requests per second.</p>
+</body></html>

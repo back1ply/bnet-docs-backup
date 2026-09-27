@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Retrieving Hearthstone Decks · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../../style.css"></head><body>
+<nav><a href="../../../index.html">Battle.net API docs archive</a></nav>
+<h1>Retrieving Hearthstone Decks</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/hearthstone/guides/decks">https://community.developer.battle.net/documentation/hearthstone/guides/decks</a></small></p>
+<p>You can retrieve information about any card deck by supplying either a deck code, or a hero card ID and a list of cards contained in the deck.</p>
+
+<h2>Deck codes</h2>
+
+<p>When you use the <strong>/hearthstone/deck</strong> endpoint with a <strong>code</strong> parameter, you should provide a valid deck code that has
+    been URL encoded (replacing <strong>=</strong> with <strong>%3D</strong> for example). To retrieve a deck code from the Hearthstone game client,
+    perform the following steps:</p>
+
+<ol>
+    <li>Open the game on any device.</li>
+    <li>Go to <strong>My Collections</strong>.</li>
+    <li>Select one of your decks.</li>
+    <li>Find and click the <strong>Copy</strong> button in the interface. Doing so will copy the code to your clipboard.</li>
+    <li>Paste that value in the URL to retrieve it from the API.</li>
+</ol>
+
+<h2>List of cards</h2>
+
+<p>Instead of a deck code, you can provide a comma-separated list of card IDs as the <strong>ids</strong> parameter.</p>
+
+<p>You should also supply a hero using the <strong>hero</strong> parameter to represent the class of the deck. For instance, a priest deck could be using hero card 813
+    (<strong>Anduin Wrynn</strong>) or 41887 (<strong>Tyrande Whisperwind</strong>). You can use the <strong>/metadata/classes</strong> endpoint to discover a hero card ID.
+    The primary hero ID for each class is included in the response. When you retrieve details about the primary hero card with <strong>/cards/813</strong> (for example),
+    alternate heroes of the same class will be included in the <strong>childIds</strong> field of the response.</p>
+
+<p>The <strong>hero</strong> parameter is optional. If not supplied, the API response will attempt to fill in the primary hero based on the classes of cards in the deck.</p>
+
+<p>The response when requesting a deck will also include the computed <b>deckCode</b>, so you can save that for later use.</p>
+
+<h2>Other ways to find deck codes</h2>
+
+<ul>
+    <li>The <a href="https://playhearthstone.com/en-us/deckbuilder">official Hearthstone Deck Builder</a> is powered by this API. Try constructing a deck using the deck builder.
+        Then you can then obtain the code from the URL, or click the "Copy Deck Code" button.</li>
+    <li>Sometimes official Hearthstone news posts and Esports match pages will show a deck with a <strong>Copy this deck code</strong> button.</li>
+    <li>Many other Hearthstone-related websites allow
+        you to copy deck codes. Look around!</li>
+</ul>
+
+<h2>Deprecated usage</h2>
+
+<p>A previous version of this guide recommended looking up a deck using the <strong>/hearthstone/deck/:deckcode</strong> endpoint. The code used in the path parameter is not
+    read with URL encoding. While this endpoint is still available for apps that may have been using it already, the URL encoded path parameter is now preferred.
+    Using the old endpoint may return incorrect deck data in a few cases.</p>
+</body></html>

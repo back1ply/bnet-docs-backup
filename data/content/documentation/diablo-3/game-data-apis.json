@@ -1,0 +1,104 @@
+{
+  "resources": [
+    {
+      "name": "D3",
+      "methods": [
+        {
+          "name": "Season Index",
+          "description": "Returns an index of available seasons.",
+          "path": "/data/d3/season/",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": []
+        },
+        {
+          "name": "Season",
+          "description": "Returns a leaderboard list for the specified season.",
+          "path": "/data/d3/season/:id",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":id",
+              "description": "The season for the leaderboard list; get a list of seasons with `GET /data/d3/season/`.",
+              "type": "integer",
+              "required": true,
+              "defaultValue": "1"
+            }
+          ]
+        },
+        {
+          "name": "Season Leaderboard",
+          "description": "Returns a the specified leaderboard for the specified season.",
+          "path": "/data/d3/season/:id/leaderboard/:leaderboard",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":id",
+              "description": "The season for the leaderboard; get a list of seasons with `GET /data/d3/season/`.",
+              "type": "integer",
+              "required": true,
+              "defaultValue": "1"
+            },
+            {
+              "name": ":leaderboard",
+              "description": "The leaderboard to retrieve; get a list of  leaderboards with `GET /data/d3/season/:id`.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "achievement-points"
+            }
+          ]
+        },
+        {
+          "name": "Era Index",
+          "description": "Returns an index of available eras.",
+          "path": "/data/d3/era/",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": []
+        },
+        {
+          "name": "Era",
+          "description": "Returns a leaderboard list for a particular era.",
+          "path": "/data/d3/era/:id",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":id",
+              "description": "The era to retrieve; get a list of eras with `GET data/d3/era/`.",
+              "type": "integer",
+              "required": true,
+              "defaultValue": "1"
+            }
+          ]
+        },
+        {
+          "name": "Era Leaderboard",
+          "description": "Returns the specified leaderboard for the specified era.",
+          "path": "/data/d3/era/:id/leaderboard/:leaderboard",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":id",
+              "description": "The era for the leaderboard; get a list of eras with `GET /data/d3/era/`.",
+              "type": "integer",
+              "required": true,
+              "defaultValue": "1"
+            },
+            {
+              "name": ":leaderboard",
+              "description": "The leaderboard to retrieve; get a list of leaderboards with `GET /data/d3/era/:id`.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "rift-barbarian"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "html": "<p>Diablo III game data APIs provides endpoints for Diablo III seasons and eras.</p>\n<h2 id=\"host-names\">Host Names</h2>\n<p>For all regions except China, the API host name follows the format <code>{region}.api.blizzard.com</code>, where <strong>{region}</strong> is one of <strong>us</strong> | <strong>eu</strong> | <strong>kr</strong> | <strong>tw</strong>. For China, the host name is <code>gateway.battlenet.com.cn</code>. For more information, see <a href=\"/documentation/guides/regionality-and-apis\">Regionality and APIs</a>.</p>\n\n\n<h2 id=\"apis\">APIs</h2>\n<p>Diablo III supports the following game data APIs. For information about using the APIs, see <a href=\"/documentation/guides/getting-started\">Getting Started</a>.</p>\n"
+}

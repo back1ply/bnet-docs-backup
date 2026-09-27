@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Getting Started · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../style.css"></head><body>
+<nav><a href="../../index.html">Battle.net API docs archive</a></nav>
+<h1>Getting Started</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/guides/getting-started">https://community.developer.battle.net/documentation/guides/getting-started</a></small></p>
+<p>Before you can get started using the APIs, you must:</p>
+<ol>
+	<li>Login or create a new Battle.net account.</li>
+	<li>Create a client through the API Access menu option.</li>
+	<li>Generate a secret for the client.</li>
+	<li>Understand how the APIs work with OAuth.</li>
+	<li>Learn how to make API requests.</li>
+</ol>
+
+<h2>Log in or register an account</h2>
+<p>Before you can use any of the APIs, you need to log in to your Battle.net account or, if you don't have one, <a href="https://account.battle.net/creation">create a new one</a>.</p>
+
+<p>Next, attach a <a href="https://us.battle.net/support/en/article/24520">Battle.net Authenticator</a> to your account. Two-factor authentication is required for any API usage; this keeps your account secure and protects the API data.</p>
+
+<p>You'll also need to accept the <a href="https://www.blizzard.com/en-us/legal/a2989b50-5f16-43b1-abec-2ae17cc09dd6/blizzard-developer-api-terms-of-use">Blizzard Developer API Terms of Use</a> before you can make any API requests.</p>
+
+<h2>Creating a client</h2>
+
+<p>To create a client:</p>
+
+<ol>
+	<li><p>Log in to the Developer Portal</a> and click <strong>API Access</strong> at the top of the window.</p></li>
+	<li><p>Click <strong>Create New Client</strong>.</p><p> <strong>Note</strong>: Developers are limited to 50 clients at a time.</p></li>
+	<li><p>In the <strong>Client Name</strong> field, enter a name to identify your client in the list view. Client names may be visible to your site users and are globally unique across all developer accounts.</p></li>
+	<li><p>In the <strong>Redirect URIs</strong> field, enter the URI to redirect the user to after they finish authorizing through the Blizzard's login page. This field is used with OAuth authentication.</p> </li>
+	<li><p>In the <strong>Service URL</strong> field, enter the URL of the service that will be using this client.</p></p> <strong>Note:</strong> If you do not have a service URL, click the associated checkbox to indicate this. If you later add a service URL, you must update the client with this information.</p></li>
+	<li><p>In the <strong>Intended Use</strong> field, specify how you intend to use this client. For example, your client will provide players information about their World of Warcraft characters or your client will display information about Hearthstone cards.</p></li>
+	<li><p>Click <strong>Create</strong>.</p></li>
+</ol>
+
+<h2>Managing clients</h2>
+<p>After creating clients, users can manage their client IDs and secrets via the Manage Client page. To manage a client, go to the Clients page and click <strong>Manage Client</strong> for the desired client.<p>
+
+<p>The Manage Client page displays the following information:<p>
+
+<ul>
+	<li>Client ID</li>
+	<li>Client secret</li>
+	<li>The option to generate a new client secret</li>
+	<li>Client name</li>
+	<li>Client redirect URIs</li>
+	<li>Service URL</li>
+	<li>Intended use of the client</li>
+</ul>
+
+<h2>Generating a new client secret</h2>
+
+<p>To generate a new client secret:</p>
+
+<ol>
+	<li>Click <strong>Generate New Secret</strong> for the desired client.</li>
+	<li>Enter a value and unit for your old secret's expiration.</li>
+	<li>Click <strong>Generate</strong>.</li>
+</ol>
+
+<p>Note that your old secret will continue to be valid for the duration of the expiration you set in step two.
+
+<h2>Read the documentation</h2>
+
+<p>After creating your client ID and secret, familiarize yourself with the way OAuth and the  APIs work:</p>
+
+<ul>
+	<li><a href="../../documentation/guides/using-oauth.html">Using OAuth</a> provides both a quick-start and in-depth guide for implementing OAuth to work with the Developer Portal.</li>
+	<li><a href="../../documentation/guides/game-data-apis.html">Game Data APIs</a> describes Game Data API technical structure and World of Warcraft response structures.</li>
+	<li><a href="../../documentation/guides/community-apis.html">Community APIs</a> describes how to use Community APIs for StarCraft II and Diablo III.</li>
+</ul>
+
+<h2>Making API requests</h2>
+<p>API requests are straightforward, but there are several details to know when making requests.</p>
+
+<h3>Access tokens</h3>
+<p> API requests require client credentials for different types of requests. Access tokens are granted by either the <a href="../../documentation/guides/using-oauth/client-credentials-flow.html">OAuth client credentials flow</a> or the <a href="../../documentation/guides/using-oauth/authorization-code-flow.html">OAuth authorization code flow</a>.</p>
+
+<h3>Constructing a URI</h3>
+<p>URIs follow a standard syntax using the format of <strong>{region}.api.blizzard.com/{API path}</strong> (or <strong>gateway.battlenet.com.cn/{API path}</strong> for China).</p>
+
+<p>For specific information about regions and locales, see <a href="../../documentation/guides/regionality-and-apis.html">Regionality and APIs</a>.</p>
+
+<h3>Making the request</h3>
+<p>The following steps walk through retrieving the current price of a WoW Token by making a <strong>GET /tokenindex</strong> request.</p>
+
+<ol>
+  <li>Before you make your request, follow the <a href="../../documentation/guides/using-oauth/client-credentials-flow.html">OAuth client credentials flow</a> to get an access token.</li>
+  <li>Make a cURL request:
+    <pre><code class="language-bash">curl -u {client_id}:{client_secret} -d grant_type=client_credentials https://oauth.battle.net/token</code></pre>
+  </li>
+  <li>Next, use that access token in your request:
+    <pre><code class="language-bash">curl -H "Authorization: Bearer {access_token}" https://us.api.blizzard.com/data/wow/token/?namespace=dynamic-us</code></pre>
+  </li>
+</ol>
+
+<p>The expected response follows this format:</p>
+
+<pre><code class="language-json">{
+    "_links": {
+        "self": {
+            "href": "https://us.api.blizzard.com/data/wow/token/index?namespace=dynamic-us"
+        }
+    },
+    "last_updated_timestamp": 1536597360000,
+    "price": 1138480000
+}</code></pre>
+
+<h2>Throttling</h2>
+<p>API clients are limited to <strong>36,000 requests per hour</strong> at a rate of <strong>100 requests per second</strong>. Exceeding the hourly quota results in slower service until traffic decreases. Exceeding the per-second limit results in a <strong>429 error</strong> for the remainder of the second until the quota refreshes.</p>
+
+<h2>Read the API reference documentation</h2>
+<p>When you're finished setting up and ready to go, check out the API reference documentation to view the public APIs for Battle.net, World of Warcraft, StarCraft II, and Diablo III.</p>
+<ul>
+  <li><a href="../../documentation/battle-net.html">Battle.net</a></li>
+  <li><a href="../../documentation/diablo-3.html">Diablo III</a></li>
+  <li><a href="../../documentation/hearthstone.html">Hearthstone</a></li>
+  <li><a href="../../documentation/starcraft-2.html">StarCraft II</a></li>
+  <li><a href="../../documentation/world-of-warcraft.html">World of Warcraft</a></li>
+  <li><a href="../../documentation/world-of-warcraft-classic.html">World of Warcraft Classic</a></li>
+</ul>
+</body></html>

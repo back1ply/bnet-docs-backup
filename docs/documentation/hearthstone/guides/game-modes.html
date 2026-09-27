@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Hearthstone Game Modes · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../../style.css"></head><body>
+<nav><a href="../../../index.html">Battle.net API docs archive</a></nav>
+<h1>Hearthstone Game Modes</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/hearthstone/guides/game-modes">https://community.developer.battle.net/documentation/hearthstone/guides/game-modes</a></small></p>
+<p>
+    Hearthstone cards come from one of several game modes: <strong>constructed</strong>, <strong>battlegrounds</strong>,
+    <strong>mercenaries</strong>, and so on.
+</p>
+
+<h2>Specifying game mode in a search</h2>
+
+<p>When searching for cards or requesting details of a specific card, you can optionally supply a <strong>gameMode</strong> parameter:</p>
+
+<pre><code class="language-markup">https://us.api.blizzard.com/hearthstone/cards?locale=en_US&gameMode=battlegrounds
+https://us.api.blizzard.com/hearthstone/cards/60036-mama-bear?locale=en_US&gameMode=battlegrounds</code></pre>
+
+Valid <b>gameMode</b> parameter values include <strong>constructed</strong>, <strong>battlegrounds</strong>,
+<strong>mercenaries</strong> and more. These parameter values should match the slug for <b>gameMode</b> from the Card API
+Metadata. For the complete list of possible parameter values, check the Card API Metadata.
+
+<h2>Constructed mode</h2>
+
+Constructed is the default game mode. For general tips on finding constructed cards, see the <a href="../../../documentation/hearthstone/guides/card-search.html">Card Search</a> section.
+
+<h2>Battlegrounds mode</h2>
+
+Battlegrounds cards have several key differences from constructed.
+
+<ul>
+    <li>Battlegrounds card searches may return both collectible and uncollectible cards. Many cards are available in both constructed and battlegrounds mode, but a few, such as
+        <strong><a href="https://playhearthstone.com/en-us/battlegrounds/60036-mama-bear">Mama Bear</a></strong>, are only in Battlegrounds.</li>
+    <li>Battlegrounds cards have a tavern tier, either a number 1-6, or <strong>hero</strong>.</li>
+    <li>Characters such as <strong><a href="https://playhearthstone.com/en-us/battlegrounds/57944-a-f-kay">A. F. Kay</a></strong> and
+        <strong><a href="https://playhearthstone.com/en-us/battlegrounds/57946-millificent-manastorm">Millificent Manastorm</a></strong> are <strong>hero</strong> tier.
+        They are playable characters rather than cards that can be drawn.</li>
+    <li>Non-hero Battlegrounds cards have special images that show their numeric tavern tier.</li>
+    <li>Some Battlegrounds cards also have upgraded versions with more powerful stats.</li>
+    <li>When you fetch data for a card that exists in both Constructed and Battlegrounds mode, Battlegrounds-specific information such as tavern tier or upgraded version will only
+        be returned if your request includes <strong>gameMode=battlegrounds</strong>.</li>
+</ul>
+
+<h3>Search parameters specific to battlegrounds mode</h3>
+
+<ul>
+    <li>Searching with <strong>gameMode=battlegrounds&tier=3</strong> will return only cards that are in the third tavern tier.</li>
+    <li>Searching with <strong>gameMode=battlegrounds&tier=hero</strong> will return only Hero characters.</li>
+    <li>The <strong>minionType</strong> parameter may be supplied. Some minionTypes, such as <b>murloc</b>, are available in both Constructed and Battlegrounds modes. Other
+        minionTypes, such as <strong>elemental</strong>, are not available in Battlegrounds mode.</li>
+</ul>
+
+<h3>Hearthstone Battlegrounds page</h3>
+
+You can see the search terms in action by visiting the <a href="https://playhearthstone.com/en-us/battlegrounds">Battlegrounds</a> page
+on the official Hearthstone website. As you update the filters with the controls, the page URL will automatically update with valid parameters that
+also work in conjunction with <strong>gameMode=battlegrounds</strong>.
+
+<h2>Mercenaries</h2>
+
+Mercenaries cards, like Battlegrounds cards, have additional data associated with them beyond constructed cards.
+
+<ul>
+    <li>Mercenaries cards can be collectible or non-collectible.</li>
+    <li>Multiple cards can represent the same Mercenary, one card for each Mercenary skin variation. Each Mercenary has
+    a skin variation that is considered the standard art for that Mercenary.</li>
+    <li>Mercenary cards have different attack and health values depending on what level the Mercenary is. These values for
+    a given Mercenary level can be found in the "mercenaryHero" attribute on the card via the "statsByLevel" field. The
+    attack and health value listed at the top level on the card are the values from the highest Mercenary level.</li>
+    <li>
+        Mercenaries cards contain an additional field based on the type of card in the game mode. Mercenaries themselves
+        include a <b>mercenaryHero</b> field containing the following:
+        <ul>
+            <li>The numeric <b>mercId</b> field gives the unique identifier for the mercenary. Different skins for the same
+            mercenary will have the same <b>mercId</b>.</li>
+            <li>The boolean <b>default</b> field denotes whether a given card is the standard art for that Mercenary.</li>
+            <li>The <b>statsByLevel</b> field maps each level to the attack and health attributes a Mercenary has at that level.</li>
+            <li>The <b>roleId</b> field denotes which role a Mercenary fits into. You can find more about which roles exist
+            and what their role IDs are by fetching metadata.</li>
+            <li>The <b>craftingCost</b> field notes the cost in coins to craft a given Mercenary using their unique Mercenary
+            coins.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Search parameters specific to Mercenaries game mode</h3>
+
+<ul>
+    <li><strong>mercenaryId</strong> will return all Mercenaries cards that represent the Mercenary with the given ID.</li>
+    <li><strong>mercenaryRole</strong> will return all Mercenaries cards that have the given Mercenary Role.</li>
+    <li><strong>defaultMercenary</strong> will return all Mercenaries cards that match the requested boolean. 0 will return
+        all cards that are NOT the default skin, while 1 will return the Mercenary card representing the default skin.</li>
+</ul>
+
+<h3>Hearthstone Mercenaries page</h3>
+
+Much like Battlegrounds, you can see these custom search terms in action by visiting the
+<a href="https://playhearthstone.com/en-us/mercenaries">Mercenaries</a> page on the official Hearthstone website. As
+you update the filters with the controls, the page URL will automatically update with valid parameters that
+also work in conjunction with <strong>gameMode=mercenaries</strong>.</body></html>

@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Diablo III Community APIs – CN · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../style.css"></head><body>
+<nav><a href="../../index.html">Battle.net API docs archive</a></nav>
+<h1>Diablo III Community APIs – CN</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/diablo-3/community-apis-cn">https://community.developer.battle.net/documentation/diablo-3/community-apis-cn</a></small></p>
+<p>The Diablo III community APIs provide China-specific endpoints for Diablo III profiles.</p>
+<h2 id="diablo-iii-icons">Diablo III Icons</h2>
+<p>Developers can fetch the images referenced by the D3 APIs by using the following URL template:</p>
+<p>   <code>http://media.blizzard.com/d3/icons/&lt;type&gt;/&lt;size&gt;/&lt;icon&gt;.png</code>.</p>
+<p>where: </p>
+<ul>
+<li><code>&lt;type&gt;</code> indicates the type of resource referenced; it can either be <strong>items</strong> or <strong>skills</strong>.</li>
+<li><code>&lt;size&gt;</code> for <em>items</em> must either be <strong>small</strong> or <strong>large</strong>.</li>
+<li><code>&lt;size&gt;</code> for <em>skills</em> must be <strong>21</strong>, <strong>42</strong>, or <strong>64</strong>. These values refer to the image size in pixels.</li>
+</ul>
+<h2 id="host-names">Host Names</h2>
+<p>In China, requests use the following formats: </p>
+<ul>
+<li>API request paths: <code>https://gateway.battlenet.com.cn</code> </li>
+<li>OAuth requests: <code>www.battlenet.com.cn/{API path}</code></li>
+</ul>
+<h2 id="apis">APIs</h2>
+<p>Diablo III supports the following APIs for the China region. For information about using the APIs, see <a href="../../documentation/guides/getting-started.html">Getting Started</a>.</p>
+
+<h2>D3 Act API</h2>
+<h3>getActIndex</h3><p><code>GET /d3/data/act</code> <small>(available in CN)</small></p><p>Returns an index of acts.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h3>getAct</h3><p><code>GET /d3/data/act/{actId}</code> <small>(available in CN)</small></p><p>Returns a single act by ID.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{actId}</td><td>integer</td><td>yes</td><td>1</td><td>The ID of the act</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h2>D3 Artisan and Recipe API</h2>
+<h3>getArtisan</h3><p><code>GET /d3/data/artisan/{artisanSlug}</code> <small>(available in CN)</small></p><p>Returns a single artisan by slug.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{artisanSlug}</td><td>string</td><td>yes</td><td>blacksmith</td><td>The artisan slug.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h3>getRecipe</h3><p><code>GET /d3/data/artisan/{artisanSlug}/recipe/{recipeSlug}</code> <small>(available in CN)</small></p><p>Returns a single recipe by slug for the specified artisan.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{artisanSlug}</td><td>string</td><td>yes</td><td>blacksmith</td><td>The asrtisan slug.</td></tr><tr><td>{recipeSlug}</td><td>string</td><td>yes</td><td>apprentice-flamberge</td><td>The recipe slug.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h2>D3 Follower API</h2>
+<h3>getFollower</h3><p><code>GET /d3/data/follower/{followerSlug}</code> <small>(available in CN)</small></p><p>Returns a single follower by slug.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{followerSlug}</td><td>string</td><td>yes</td><td>templar</td><td>The follower slug.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h2>D3 Character Class and Skill API</h2>
+<h3>getCharacterClass</h3><p><code>GET /d3/data/hero/{classSlug}</code> <small>(available in CN)</small></p><p>Returns a single character class by slug.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{classSlug}</td><td>string</td><td>yes</td><td>barbarian</td><td>The character class slug.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h3>getApiSkill</h3><p><code>GET /d3/data/hero/{classSlug}/skill/{skillSlug}</code> <small>(available in CN)</small></p><p>Returns a single skill by slug for a specific character class.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{classSlug}</td><td>string</td><td>yes</td><td>barbarian</td><td>The character class slug.</td></tr><tr><td>{skillSlug}</td><td>string</td><td>yes</td><td>bash</td><td>The skill slug.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h2>D3 Item Type API</h2>
+<h3>getItemTypeIndex</h3><p><code>GET /d3/data/item-type</code> <small>(available in CN)</small></p><p>Returns an item type index.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h3>getItemType</h3><p><code>GET /d3/data/item-type/{itemTypeSlug}</code> <small>(available in CN)</small></p><p>Returns a single item type by slug.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{itemTypeSlug}</td><td>string</td><td>yes</td><td>sword2h</td><td>The item type slug.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h2>D3 Item API</h2>
+<h3>getItem</h3><p><code>GET /d3/data/item/{itemSlugAndId}</code> <small>(available in CN)</small></p><p>Returns a single item by item slug and ID.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{itemSlugAndId}</td><td>string</td><td>yes</td><td>corrupted-ashbringer-Unique_Sword_2H_104_x1</td><td>The item slug and ID.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h2>D3 Profile API</h2>
+<h3>getApiAccount</h3><p><code>GET /d3/profile/{account}/</code> <small>(available in CN)</small></p><p>Returns a single profile.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{account}</td><td>string</td><td>yes</td><td></td><td>The account BattleTag.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h3>getApiHero</h3><p><code>GET /d3/profile/{account}/hero/{heroId}</code> <small>(available in CN)</small></p><p>Returns a single hero.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{account}</td><td>string</td><td>yes</td><td></td><td>The account BattleTag.</td></tr><tr><td>{heroId}</td><td>string</td><td>yes</td><td></td><td>The hero ID.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h3>getApiDetailedHeroItems</h3><p><code>GET /d3/profile/{account}/hero/{heroId}/items</code> <small>(available in CN)</small></p><p>Returns a list of items for the specified hero.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{account}</td><td>string</td><td>yes</td><td></td><td>The account BattleTag.</td></tr><tr><td>{heroId}</td><td>string</td><td>yes</td><td></td><td>The hero ID.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table>
+<h3>getApiDetailedFollowerItems</h3><p><code>GET /d3/profile/{account}/hero/{heroId}/follower-items</code> <small>(available in CN)</small></p><p>Returns a list of items for the specified hero's followers</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{account}</td><td>string</td><td>yes</td><td></td><td>The account BattleTag.</td></tr><tr><td>{heroId}</td><td>string</td><td>yes</td><td></td><td>The hero ID.</td></tr><tr><td>locale</td><td>string</td><td></td><td>zh_CN</td><td>The locale to reflect in localized data.</td></tr></table></body></html>

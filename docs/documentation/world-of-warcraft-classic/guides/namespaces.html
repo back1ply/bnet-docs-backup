@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>World of Warcraft Classic Namespaces · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../../style.css"></head><body>
+<nav><a href="../../../index.html">Battle.net API docs archive</a></nav>
+<h1>World of Warcraft Classic Namespaces</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/world-of-warcraft-classic/guides/namespaces">https://community.developer.battle.net/documentation/world-of-warcraft-classic/guides/namespaces</a></small></p>
+<p>In the World of Warcraft Classic Game Data and Profile APIs, <strong>namespaces</strong>
+allow JSON documents to be published contextually in relation to a
+specific patch or point in time. Additionally, they allow documents to
+be grouped by category, each of which has a different contract of use.</p>
+<h2 id="namespace-categories">Namespace Categories</h2>
+<p>The World of Warcraft Classic APIs have two namespace categories: static
+and dynamic.</p>
+<h3 id="static-namespaces">Static Namespaces</h3>
+<p>JSON documents in a static namespace contain data that is directly
+related to underlying game systems. Resources in this category are
+expected to change on a per-patch basis, though they could change more
+or less frequently. An example of a static resource is a JSON document
+detailing a specific achievement or item.</p>
+<h3 id="dynamic-namespaces">Dynamic Namespaces</h3>
+<p>JSON documents in a dynamic namespace contain data that is published in
+response to in-game events as they happen. Resources in this category
+are expected to change fairly frequently. An example of a dynamic
+resource is a JSON document detailing WoW Token data (which could
+change regularly as its price fluctuates).</p>
+<h3 id="profile-namespaces">Profile Namespaces</h3>
+<p>JSON documents in a profile namespace contain data that is contextual to
+a specific character or Battle.net account. Resources in this category are
+expected to change fairly frequently. An example of a profile resource
+is a JSON document detailing the achievements for a specific World of
+Warcraft character or a document detailing the roster for a guild.</p>
+<p>Resources related to characters are updated upon character logout.
+Resources related to guilds are updated at a regular interval.</p>
+<h2 id="available-namespaces">Available Namespaces</h2>
+<p>The available namespaces for each category are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Game Version</th>
+<th>Static Namespace</th>
+<th>Dynamic Namespace</th>
+<th>Profile Namespace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>World of Warcraft Classic (Era)</td>
+<td>static-classic1x-<strong>{region}</strong></td>
+<td>dynamic-classic1x-<strong>{region}</strong></td>
+<td>profile-classic1x-<strong>{region}</strong></td>
+</tr>
+<tr>
+<td>Mists of Pandaria Classic (Progression)</td>
+<td>static-classic-<strong>{region}</strong></td>
+<td>dynamic-classic-<strong>{region}</strong></td>
+<td>profile-classic-<strong>{region}</strong></td>
+</tr>
+<tr>
+<td>Burning Crusade Classic (Anniversary)</td>
+<td>static-classicann-<strong>{region}</strong></td>
+<td>dynamic-classicann-<strong>{region}</strong></td>
+<td>profile-classicann-<strong>{region}</strong></td>
+</tr>
+</tbody></table>
+<p>The namespace above contains a region-specific identifier that is
+appended to the end of the namespace. The region identifiers are as
+follows:</p>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Identifier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>North America</td>
+<td>us</td>
+</tr>
+<tr>
+<td>Europe</td>
+<td>eu</td>
+</tr>
+<tr>
+<td>Korea</td>
+<td>kr</td>
+</tr>
+<tr>
+<td>Taiwan</td>
+<td>tw</td>
+</tr>
+<tr>
+<td>China</td>
+<td>cn</td>
+</tr>
+</tbody></table>
+<p>You construct a namespace by taking a namespace from the first table and
+replacing the <strong>{region}</strong> tag with a valid region identifier from the
+second table. Examples include <strong>static-classic1x-us</strong> and <strong>dynamic-classic-cn</strong>.</p>
+<p>For more information about how region is linked to data, see
+<a href="../../../documentation/guides/regionality-and-apis.html">Regionality and APIs</a>.</p>
+<h2 id="specifying-a-namespace">Specifying a Namespace</h2>
+<p>Every request to the World of Warcraft APIs <strong>must</strong> have a namespace
+specified. A namespace can be specified either as a header or as a query
+parameter:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Format</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header</td>
+<td>Battlenet-Namespace: {namespace}</td>
+<td>Battlenet-Namespace: static-classic-us</td>
+</tr>
+<tr>
+<td>Query Parameter</td>
+<td>?namespace={namespace}</td>
+<td>?namespace=static-classic-us</td>
+</tr>
+</tbody></table>
+</body></html>

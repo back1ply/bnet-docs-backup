@@ -1,0 +1,661 @@
+{
+  "resources": [
+    {
+      "name": "Cards",
+      "methods": [
+        {
+          "name": "Card search",
+          "description": "Returns an up-to-date list of all cards matching the search criteria. For more information about the search parameters, see the <a href='/documentation/hearthstone/guides'>Card Search Guide</a>.",
+          "path": "/hearthstone/cards",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data. If you do not supply a value, all translations are returned.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            },
+            {
+              "name": "set",
+              "description": "The slug of the set the card belongs to. If you do not supply a value, cards from all sets will be returned.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "class",
+              "description": "The slug of the card's class.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "manaCost",
+              "description": "The mana cost required to play the card. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "attack",
+              "description": "The attack power of the minion or weapon. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "health",
+              "description": "The health of a minion. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "collectible",
+              "description": "Whether a card is collectible. A value of 1 indicates that collectible cards should be returned; 0 indicates uncollectible cards. To return all cards, use a value of '0,1'.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "rarity",
+              "description": "The rarity of a card. This value must match the rarity slugs found in metadata.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "type",
+              "description": "The type of card (for example, minion, spell, and so on). This value must match the type slugs found in metadata.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "minionType",
+              "description": "The type of minion card (for example, beast, murloc, dragon, and so on). This value must match the minion type slugs found in metadata.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "keyword",
+              "description": "A required keyword on the card (for example, battlecry, deathrattle, and so on). This value must match the keyword slugs found in metadata.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "textFilter",
+              "description": "A text string used to filter cards. You must include a locale along with the textFilter parameter.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "gameMode",
+              "description": "A recognized game mode (for example, <strong>battlegrounds</strong> or <strong>constructed</strong>). The default value is constructed. See the <a href='/documentation/hearthstone/guides/game-modes'>Game Modes Guide</a> for more information.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "spellSchool",
+              "description": "The school of a spell card (for example, arcane, fire, frost, and so on). This value must match the spell school slugs found in metadata.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "page",
+              "description": "A page number.",
+              "type": "number",
+              "required": false
+            },
+            {
+              "name": "pageSize",
+              "description": "The number of results to choose per page. A value will be selected automatically if you do not supply a pageSize or if the pageSize is higher than the maximum allowed.",
+              "type": "number",
+              "required": false
+            },
+            {
+              "name": "sort",
+              "description": "The sort option and direction used to sort the results. Valid values include manaCost:asc, manaCost:desc, attack:asc, attack:desc, health:asc, health:desc, class:asc, class:desc, groupByClass:asc, groupByClass:desc, name:asc, and name:desc. Results are sorted by name:asc by default.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "order (deprecated)",
+              "description": "The order in which to sort the results if no order is provided with sort option. Valid values are asc or desc. The default value is asc.",
+              "type": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "Detailed card search example",
+          "description": "Returns a specific card by using detailed search criteria. For more information about the search parameters, see the <a href='/documentation/hearthstone/guides/card-search'>Card Search Guide</a>.",
+          "path": "/hearthstone/cards",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data. If you do not supply a value, all translations are returned.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            },
+            {
+              "name": "set",
+              "description": "The slug of the set the card belongs to. If you do not supply a value, cards from all sets will be returned.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "rise-of-shadows"
+            },
+            {
+              "name": "class",
+              "description": "The slug of the card's class.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "mage"
+            },
+            {
+              "name": "manaCost",
+              "description": "The mana cost required to play the card. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false,
+              "defaultValue": "10"
+            },
+            {
+              "name": "attack",
+              "description": "The attack power of the minion or weapon. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false,
+              "defaultValue": "4"
+            },
+            {
+              "name": "health",
+              "description": "The health of a minion. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false,
+              "defaultValue": "10"
+            },
+            {
+              "name": "collectible",
+              "description": "Whether a card is collectible. A value of 1 indicates that collectible cards should be returned; 0 indicates uncollectible cards. To return all cards, use a value of '0,1'.",
+              "type": "numbers",
+              "required": false,
+              "defaultValue": "1"
+            },
+            {
+              "name": "rarity",
+              "description": "The rarity of a card. This value must match the rarity slugs found in metadata.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "legendary"
+            },
+            {
+              "name": "type",
+              "description": "The type of card (for example, minion, spell, and so on). This value must match the type slugs found in metadata.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "minion"
+            },
+            {
+              "name": "minionType",
+              "description": "The type of minion card (for example, beast, murloc, dragon, and so on). This value must match the minion type slugs found in metadata.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "dragon"
+            },
+            {
+              "name": "keyword",
+              "description": "A required keyword on the card (for example, battlecry, deathrattle, and so on). This value must match the keyword slugs found in metadata.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "battlecry"
+            },
+            {
+              "name": "textFilter",
+              "description": "A text string used to filter cards. You must include a locale along with the textFilter parameter.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "kalecgos"
+            },
+            {
+              "name": "gameMode",
+              "description": "A recognized game mode (for example, <strong>battlegrounds</strong> or <strong>constructed</strong>). The default value is constructed. See the <a href='/documentation/hearthstone/guides/game-modes'>Game Modes Guide</a> for more information.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "constructed"
+            },
+            {
+              "name": "page",
+              "description": "A page number.",
+              "type": "number",
+              "required": false,
+              "defaultValue": "1"
+            },
+            {
+              "name": "pageSize",
+              "description": "The number of results to choose per page. A value will be selected automatically if you do not supply a pageSize or if the pageSize is higher than the maximum allowed.",
+              "type": "number",
+              "required": false,
+              "defaultValue": "5"
+            },
+            {
+              "name": "sort",
+              "description": "The sort option and direction used to sort the results. Valid values include manaCost:asc, manaCost:desc, attack:asc, attack:desc, health:asc, health:desc, class:asc, class:desc, groupByClass:asc, groupByClass:desc, name:asc, and name:desc. Results are sorted by name:asc by default.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "name:asc"
+            },
+            {
+              "name": "order (deprecated)",
+              "description": "The order in which to sort the results if no order is provided with sort option. Valid values are asc or desc. The default value is asc.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "asc"
+            }
+          ]
+        },
+        {
+          "name": "Battlegrounds card search",
+          "description": "Returns an up-to-date list of all cards matching the search criteria for the specified game mode. For more information about the search parameters, see the <a href='/documentation/hearthstone/guides/card-search'>Card Search Guide</a>.",
+          "path": "/hearthstone/cards",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data. If you do not supply a value, all translations are returned.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            },
+            {
+              "name": "gameMode",
+              "description": "A recognized game mode (for example, <strong>battlegrounds</strong> or <strong>constructed</strong>). The default value is constructed. See the <a href='/documentation/hearthstone/guides/game-modes'>Game Modes Guide</a> for more information.",
+              "type": "string",
+              "defaultValue": "battlegrounds",
+              "required": false
+            },
+            {
+              "name": "tier",
+              "description": "This special parameter is for tavern tier, which is only recognized when searching for Battlegrounds cards. Valid comma-separated values are numbers 1-6, or the string 'hero'.",
+              "type": "numbers",
+              "required": false,
+              "defaultValue": "hero,3"
+            },
+            {
+              "name": "attack",
+              "description": "The attack power of the minion or weapon. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "health",
+              "description": "The health of a minion. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "minionType",
+              "description": "The type of minion card (for example, beast, murloc, dragon, and so on). This value must match the minion type slugs found in metadata.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "keyword",
+              "description": "A required keyword on the card (for example, battlecry, deathrattle, and so on). This value must match the keyword slugs found in metadata.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "textFilter",
+              "description": "A text string used to filter cards. You must include a locale along with the textFilter parameter.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "page",
+              "description": "A page number.",
+              "type": "number",
+              "required": false
+            },
+            {
+              "name": "pageSize",
+              "description": "The number of results to choose per page. A value will be selected automatically if you do not supply a pageSize or if the pageSize is higher than the maximum allowed.",
+              "type": "number",
+              "required": false
+            },
+            {
+              "name": "sort",
+              "description": "The sort option and direction used to sort the results. Valid values include tier:asc, tier:desc, attack:asc, attack:desc, health:asc, health:desc, name:asc, and name:desc. Results are sorted by name:asc by default.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "order (deprecated)",
+              "description": "The order in which to sort the results if no order is provided with sort option. Valid values are asc or desc. The default value is asc.",
+              "type": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "Mercenaries card search",
+          "description": "Returns an up-to-date list of all cards matching the search criteria for the specified game mode. For more information about the search parameters, see the <a href='/documentation/hearthstone/guides/card-search'>Card Search Guide</a>.",
+          "path": "/hearthstone/cards",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data. If you do not supply a value, all translations are returned.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            },
+            {
+              "name": "gameMode",
+              "description": "A recognized game mode (for example, <strong>battlegrounds</strong> or <strong>mercenaries</strong>). The default value is constructed. See the <a href='/documentation/hearthstone/guides/game-modes'>Game Modes Guide</a> for more information.",
+              "type": "string",
+              "defaultValue": "mercenaries",
+              "required": false
+            },
+            {
+              "name": "attack",
+              "description": "The attack power of the mercenary. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "health",
+              "description": "The health of a mercenary. You can include multiple values in a comma-separated list of numeric values.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "minionType",
+              "description": "The type of mercenary card (for example, beast, murloc, dragon, and so on). This value must match the minion type slugs found in metadata.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "mercenaryId",
+              "description": "The unique numeric ID of a mercenary. This can return multiple cards representing each mercenary skin.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "mercenaryRole",
+              "description": "The role of a mercenary card (for example, fighter, protector, tank). These values must match the mercenary role slugs in metadata. You can include multiple values in a comma-separated list of values.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "defaultMercenary",
+              "description": "Whether or not a given card represents the default Mercenary skin. Specify 0 for non-default, and 1 for default.",
+              "type": "numbers",
+              "required": false
+            },
+            {
+              "name": "textFilter",
+              "description": "A text string used to filter cards. You must include a locale along with the textFilter parameter.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "page",
+              "description": "A page number.",
+              "type": "number",
+              "required": false
+            },
+            {
+              "name": "pageSize",
+              "description": "The number of results to choose per page. A value will be selected automatically if you do not supply a pageSize or if the pageSize is higher than the maximum allowed.",
+              "type": "number",
+              "required": false
+            },
+            {
+              "name": "sort",
+              "description": "The sort option and direction used to sort the results. Valid values include tier:asc, tier:desc, attack:asc, attack:desc, health:asc, health:desc, name:asc, and name:desc. Results are sorted by name:asc by default.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "order (deprecated)",
+              "description": "The order in which to sort the results if no order is provided with sort option. Valid values are asc or desc. The default value is asc.",
+              "type": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "Fetch one card",
+          "description": "Returns the card with an ID or slug that matches the one you specify. For more information, see the <a href='/documentation/hearthstone/guides/card-search'>Card Search Guide</a>.",
+          "path": "/hearthstone/cards/:idorslug",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":idorslug",
+              "description": "An ID or slug that uniquely identifies a card. You can discover these values by using the `GET /hearthstone/cards` endpoint.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "52119-arch-villain-rafaam"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            },
+            {
+              "name": "gameMode",
+              "description": "A recognized game mode (for example, <strong>battlegrounds</strong> or <strong>constructed</strong>). The default value is constructed. See the <a href='/documentation/hearthstone/guides/game-modes'>Game Modes Guide</a> for more information.",
+              "type": "string",
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Card Backs",
+      "methods": [
+        {
+          "name": "Card Back Search",
+          "description": "Returns an up-to-date list of all card backs matching the search criteria. For more information about the search parameters, see the <a href='/documentation/hearthstone/guides/card-backs'>Card Backs Guide</a>.",
+          "path": "/hearthstone/cardbacks",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "type": "string",
+              "required": false,
+              "default": "en_US",
+              "description": "The locale to reflect in localized data. If you do not supply a value, all translations are returned."
+            },
+            {
+              "name": "cardBackCategory",
+              "type": "string",
+              "required": false,
+              "description": "A category of the card back. The category must match a valid category."
+            },
+            {
+              "name": "textFilter",
+              "type": "string",
+              "required": false,
+              "description": "A text string used to filter card backs. You must include a locale along with the textFilter parameter.",
+              "default": ""
+            },
+            {
+              "name": "sort",
+              "type": "string",
+              "required": false,
+              "description": "The field used to sort the results. Valid value include name:asc, name:desc, dateAdded:asc, and dateAdded:desc. Results are sorted by date (desc) by default.",
+              "defaultValue": "dateAdded:desc"
+            },
+            {
+              "name": "page",
+              "description": "A page number.",
+              "type": "number",
+              "required": false
+            },
+            {
+              "name": "pageSize",
+              "description": "The number of results to choose per page. A value will be selected automatically if you do not supply a pageSize or if the pageSize is higher than the maximum allowed.",
+              "type": "number",
+              "required": false
+            },
+            {
+              "name": "order (deprecated)",
+              "description": "The order in which to sort the results if no order is provided with sort option. Valid values are asc or desc. The default value is asc.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "desc"
+            }
+          ]
+        },
+        {
+          "name": "Fetch one card back",
+          "description": "Returns a specific card back by using card back ID or slug.",
+          "path": "/hearthstone/cardbacks/:idorslug",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":idorslug",
+              "description": "An ID or slug that uniquely identifies a card back. You can discover these values by using the GET /hearthstone/cardbacks endpoint",
+              "type": "string",
+              "required": true,
+              "defaultValue": "155-pizza-stone"
+            },
+            {
+              "name": "locale",
+              "type": "string",
+              "required": false,
+              "default": "en_US",
+              "description": "The locale to reflect in localized data. If you do not supply a value, all translations are returned."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Decks",
+      "methods": [
+        {
+          "name": "Get deck by code",
+          "description": "Finds a deck by deck code. For more information, see the <a href='/documentation/hearthstone/guides/decks'>Retrieving Decks Guide</a>.",
+          "path": "/hearthstone/deck",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            },
+            {
+              "name": "code",
+              "description": "A code that identifies a deck. You can copy one from the game or various Hearthstone websites. The value should be URL encoded.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "AAECAQcG+wyd8AKS+AKggAOblAPanQMMS6IE/web8wLR9QKD+wKe+wKz/AL1gAOXlAOalAOSnwMA"
+            },
+            {
+              "name": "ids",
+              "description": "A list of card IDs representing cards in the deck. Ignored if a <strong>code</strong> parameter is also present.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "hero",
+              "description": "The card ID for the hero of the deck. Used along with <strong>ids</strong>. If not present, the API will attempt to add a default hero and class based on the cards in the deck.",
+              "type": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "Get deck by card list",
+          "description": "Finds a deck by list of cards, including the hero. For more information, see the <a href='/documentation/hearthstone/guides/decks'>Retrieving Decks Guide</a>.",
+          "path": "/hearthstone/deck",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            },
+            {
+              "name": "code",
+              "description": "A code that identifies a deck. You can copy one from the game or various Hearthstone websites. The value should be URL encoded.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "name": "ids",
+              "description": "A list of card IDs representing cards in the deck. Ignored if a <strong>code</strong> parameter is also present.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "906,1099,1363,1367,46706,48099,48759,49184,50071,50278,51714,52109,52632,52715,53409,53413,53756,53969,54148,54425,54431,54874,54898,54917,55166,55245,55438,55441,55907,57416"
+            },
+            {
+              "name": "hero",
+              "description": "The card ID for the hero of the deck. Used along with <strong>ids</strong>. If not present, the API will attempt to add a default hero and class based on the cards in the deck.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "813"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metadata",
+      "methods": [
+        {
+          "name": "All metadata",
+          "path": "/hearthstone/metadata",
+          "description": "Returns information about the categorization of cards. Metadata includes the card set, set group (for example, Standard or Year of the Dragon), rarity, class, card type, minion type, and keywords. For more information, see the <a href='/documentation/hearthstone/guides/metadata'>Metadata Guide</a>.",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        },
+        {
+          "name": "Specific metadata",
+          "description": "Returns information about just one type of metadata. For more information, see the <a href='/documentation/hearthstone/guides/metadata'>Metadata Guide</a>.",
+          "path": "/hearthstone/metadata/:type",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            },
+            {
+              "name": ":type",
+              "description": "The type of the metadata to retrieve. Valid values include sets, setGroups, types, rarities, classes, minionTypes, and keywords.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "sets"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "html": "<p>Hearthstone game data APIs provide endpoints for Hearthstone cards, decks, and related information. For tips about searching and other questions about the Hearthstone API, see the <a href=\"/documentation/hearthstone/guides\">Hearthstone Guides</a>.</p>\n<h2 id=\"host-names\">Host Names</h2>\n<p>For all regions except China, the API host name follows the format <code>{region}.api.blizzard.com</code>, where <strong>{region}</strong> is one of <strong>us</strong> | <strong>eu</strong> | <strong>kr</strong> | <strong>tw</strong>. For China, the host name is <code>gateway.battlenet.com.cn</code>. For more information, see <a href=\"/documentation/guides/regionality-and-apis\">Regionality and APIs</a>.</p>\n\n\n<h2 id=\"apis\">APIs</h2>\n<p>Hearthstone supports the following APIs. For information about using the APIs, see <a href=\"/documentation/guides/getting-started\">Getting Started</a>.</p>\n"
+}

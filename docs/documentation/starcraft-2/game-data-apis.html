@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>StarCraft II Game Data APIs · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../style.css"></head><body>
+<nav><a href="../../index.html">Battle.net API docs archive</a></nav>
+<h1>StarCraft II Game Data APIs</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/starcraft-2/game-data-apis">https://community.developer.battle.net/documentation/starcraft-2/game-data-apis</a></small></p>
+<p>StarCraft II game data APIs provide endpoints for StarCraft II league data. </p>
+<h2 id="host-names">Host Names</h2>
+<p>For all regions except China, the API host name follows the format <code>{region}.api.blizzard.com</code>, where <strong>{region}</strong> is one of <strong>us</strong> | <strong>eu</strong> | <strong>kr</strong> | <strong>tw</strong>. For China, the host name is <code>gateway.battlenet.com.cn</code>. For more information, see <a href="../../documentation/guides/regionality-and-apis.html">Regionality and APIs</a>.</p>
+
+
+<h2 id="apis">APIs</h2>
+<p> StarCraft II supports the following game data APIs. For information about using the APIs, see <a href="../../documentation/guides/getting-started.html">Getting Started</a>.</p>
+
+<h2>StarCraft II League API</h2>
+<h3>getLeagueData</h3><p><code>GET /data/sc2/league/{seasonId}/{queueId}/{teamType}/{leagueId}</code></p><p>Returns data for the specified season, queue, team, and league.
+
+**queueId**: the standard available queueIds are: `1`=WoL 1v1, `2`=WoL 2v2, `3`=WoL 3v3, `4`=WoL 4v4, `101`=HotS 1v1, `102`=HotS 2v2, `103`=HotS 3v3, `104`=HotS 4v4, `201`=LotV 1v1, `202`=LotV 2v2, `203`=LotV 3v3, `204`=LotV 4v4, `206`=LotV Archon. Note that other available queues may not be listed here.
+
+**teamType**: there are two available teamTypes: `0`=arranged, `1`=random.
+
+**leagueId**: available leagueIds are: `0`=Bronze, `1`=Silver, `2`=Gold, `3`=Platinum, `4`=Diamond, `5`=Master, `6`=Grandmaster.</p><table><tr><th>Name</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr><tr><td>{seasonId}</td><td>string</td><td>yes</td><td>37</td><td>The season ID of the data to retrieve.</td></tr><tr><td>{queueId}</td><td>string</td><td>yes</td><td>201</td><td>The queue ID of the data to retrieve.</td></tr><tr><td>{teamType}</td><td>string</td><td>yes</td><td>0</td><td>The team type of the data to retrieve.</td></tr><tr><td>{leagueId}</td><td>string</td><td>yes</td><td>6</td><td>The league ID of the data to retrieve.</td></tr><tr><td>locale</td><td>string</td><td></td><td>en_US</td><td>The locale to reflect in localized data.</td></tr></table></body></html>

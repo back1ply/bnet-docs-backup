@@ -1,0 +1,21 @@
+{
+  "sections": [
+    {
+      "title": "API Reference",
+      "cards": [
+        "oauth-apis"
+      ],
+      "cardPages": [
+        {
+          "title": "Battle.net OAuth APIs",
+          "menuTitle": "OAuth APIs",
+          "cardTitle": "OAuth APIs",
+          "cardDescription": "Endpoints used for OAuth 2.0 authentication flows.",
+          "contentType": "api-reference",
+          "path": "documentation/battle-net/oauth-apis"
+        }
+      ]
+    }
+  ],
+  "html": "<p>Battle.net provides APIs to use for OAuth 2.0 authencation flows. Battle.net uses OAuth 2.0 to secure the game and community APIs that we provide.</p>\n<p>For more information about OAuth, see <a href=\"../guides/using-oauth\">Using OAuth</a>.</p>\n"
+}

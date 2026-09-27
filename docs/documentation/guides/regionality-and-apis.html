@@ -1,0 +1,351 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Regionality and APIs · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../style.css"></head><body>
+<nav><a href="../../index.html">Battle.net API docs archive</a></nav>
+<h1>Regionality and APIs</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/guides/regionality-and-apis">https://community.developer.battle.net/documentation/guides/regionality-and-apis</a></small></p>
+<p>Battle.net employs several region-based concepts to manage and deliver game data. The following documentation outlines how data is separated for API consumers.</p>
+
+<h2>Account partitions</h2>
+<p>Battle.net operates two main account partitions: one in China and one for the rest of the world. When any data or concept is described as "unique" in documentation, that data or item resides within a particular partition. API requests cannot retrieve global information from the China partition, and vice versa.</p>
+<table>
+  <colgroup>
+    <col/>
+    <col/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>
+      <p>Partition</p>
+    </th>
+    <th>
+      <p>Regions</p>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <p>China</p>
+    </td>
+    <td>
+      <p>CN</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Global</p>
+    </td>
+    <td>
+      <p>US, EU, KR, TW</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Account ID</h2>
+<p>Battle.net uses Account IDs, which are 64-bit unsigned integers, to uniquely identify users within a particular account partition.</p>
+
+<p>Developers should use an <strong>accountId</strong> to link a user into their applications wherever possible.</p>
+
+<h2>Regions</h2>
+<p>API data is limited to specific regions. For example, US APIs accessed through us.battle.net only contain data from US battlegroups and realms. Locale support is limited to locations supported on Blizzard community game sites.</p>
+
+<p>Game information is different from region to region. For example, a user that has both US and EU WoW accounts has different characters, achievements, and other information in each region. Likewise, a D3 user who has a single license for D3 on their account has a different character list for each region in which the game operates.</p>
+<table>
+  <colgroup>
+    <col/>
+    <col/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>
+      <p>Region</p>
+    </th>
+    <th>
+      <p>Data</p>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <p>US</p>
+    </td>
+    <td>
+      <p>Battle.net, WoW, D3, SC2</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>EU</p>
+    </td>
+    <td>
+      <p>Battle.net, WoW, D3, SC2</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>KR</p>
+    </td>
+    <td>
+      <p>Battle.net, WoW, D3, SC2</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>TW</p>
+    </td>
+    <td>
+      <p>Battle.net, WoW, D3, SC2</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>CN</p>
+    </td>
+    <td>
+      <p>Battle.net, WoW, D3, SC2</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<p>For optimal user experience, applications should use the region closest to the user for retrieving account data. Applications may need to request game data for multiple regions if the user indicates that they play in multiple regions.</p>
+
+<h3>StarCraft II region and realm IDs</h3>
+<p>StarCraft II categorizes user profiles into regions and realms. Although realms are a legacy sub-set of region categories, <strong>realmId</strong> is still a required parameter for many profile-related SC2 requests. The table below lists all StarCraft II regions and realm IDs.</p>
+
+<table>
+  <colgroup>
+    <col/>
+    <col/>
+    <col/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>
+      <p>Region</p>
+    </th>
+    <th>
+      <p>regionId</p>
+    </th>
+    <th>
+      <p>realmId</p>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <p>US</p>
+    </td>
+    <td>
+      <p>1</p>
+    </td>
+    <td>
+      <p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>LatAm</p>
+    </td>
+    <td>
+      <p>1</p>
+    </td>
+    <td>
+      <p>2</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Europe</p>
+    </td>
+    <td>
+      <p>2</p>
+    </td>
+    <td>
+      <p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Russia</p>
+    </td>
+    <td>
+      <p>2</p>
+    </td>
+    <td>
+      <p>2</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Korea</p>
+    </td>
+    <td>
+      <p>3</p>
+    </td>
+    <td>
+      <p>1</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Taiwan</p>
+    </td>
+    <td>
+      <p>3</p>
+    </td>
+    <td>
+      <p>2</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>China</p>
+    </td>
+    <td>
+      <p>5</p>
+    </td>
+    <td>
+      <p>1</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h4>Getting a profile's region and realm IDs</h4>
+
+<p>To get a profile's region and realm ID, make a request to <strong>GET /player/{accountId}</strong>. The response includes the user's name, profile URL, avatar URL, profile ID, region ID, and realm ID.</p>
+
+<h2>Localization</h2>
+
+<p>All available API resources provide localized strings using the <strong>locale</strong> query string parameter. Supported locales vary from region to region and align with those supported on Blizzard community sites.</p>
+
+<p>To access a different region in an API request, add the <strong>locale</strong> query parameter. For example, the request to retrieve the European Diablo III item type list localized in French uses this format:</p>
+
+<pre><code class="language-markup">http://eu.api.blizzard.com/d3/data/item-type?locale=fr_FR</code></pre>
+
+<h3>Region Host List</h3>
+
+<p>The following table lists all API regions and their corresponding available locales.</p>
+
+<table>
+  <colgroup>
+    <col/>
+    <col/>
+    <col/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>
+      <p>Region</p>
+    </th>
+    <th>
+      <p>Host</p>
+    </th>
+    <th>
+      <p>Available Locales</p>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <p>North America</p>
+    </td>
+    <td>
+      <p>https://us.api.blizzard.com/</p>
+    </td>
+    <td>
+      <p>en_US</p>
+      <p>es_MX</p>
+      <p>pt_BR</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Europe</p>
+    </td>
+    <td>
+      <p>https://eu.api.blizzard.com/</p>
+    </td>
+    <td>
+      <p>en_GB</p>
+      <p>es_ES</p>
+      <p>fr_FR</p>
+      <p>ru_RU</p>
+      <p>de_DE</p>
+      <p>pt_PT</p>
+      <p>it_IT</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Korea</p>
+    </td>
+    <td>
+      <p>https://kr.api.blizzard.com/</p>
+    </td>
+    <td>
+      <p>ko_KR</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Taiwan</p>
+    </td>
+    <td>
+      <p>https://tw.api.blizzard.com/</p>
+    </td>
+    <td>
+      <p>zh_TW</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>China</p>
+    </td>
+    <td>
+      <p>https://gateway.battlenet.com.cn/</p>
+    </td>
+    <td>
+      <p>zh_CN</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>Locale in default Game Data API responses</h3>
+<p>The default for Game Data API response objects includes all locales for a localized string that filters down to a specific locale, if one is specified in the request. To specify localization in an API request, use the <strong>locale</strong> query parameter in the request URL. API requests use the <strong>locale</strong> query parameter to provide return text in a preferred language (defaulting to <strong>en_US</strong>).</p>
+<p><strong>Note:</strong> the default language for Community API responses is <strong>en_US</strong> unless a request includes a specific <strong>locale</strong> query parameter.</p>
+<pre><code class="language-json">{
+  "faction": {
+    "type": "ALLIANCE",
+    "name": {
+      "en_US": "Alliance",
+      "es_MX": "Alianza",
+      "pt_BR": "Aliança",
+      "de_DE": "Allianz",
+      "en_GB": "Alliance",
+      "es_ES": "Alianza",
+      "fr_FR": "Alliance",
+      "it_IT": "Alleanza",
+      "ru_RU": "Альянс",
+      "ko_KR": "얼라이언스",
+      "zh_TW": "聯盟",
+      "zh_CN": "联盟"
+    }
+  }
+}</code></pre>
+
+<h3>Locale-specific response (en_US)</h3>
+<pre><code class="language-json">{
+  "faction": {
+    "type": "ALLIANCE",
+    "name": "Alliance"
+  }
+}</code></pre>
+</body></html>

@@ -1,0 +1,86 @@
+{
+  "sections": [
+    {
+      "title": "Getting Started",
+      "type": "cards",
+      "cards": [
+        "guides/getting-started",
+        "guides/using-oauth"
+      ],
+      "cardPages": [
+        {
+          "title": "Getting Started",
+          "cardTitle": "Getting Started",
+          "cardDescription": "Learn how to set up your OAuth client ID and secret, manage your clients, and make API requests.",
+          "cardImage": "api/pages/page-images/getting-started-card.321b4bde340cac2f71e03417a6f7e075.png",
+          "path": "documentation/guides/getting-started"
+        },
+        {
+          "title": "Using OAuth",
+          "cardTitle": "Using OAuth",
+          "cardDescription": "Learn about Battle.net APIs OAuth requirements and libraries. Understand authorization code and client credential flows for your sites.",
+          "cardImage": "api/pages/page-images/using-oauth-card.c0dfd1d818b959904aaecd70510a465b.png",
+          "path": "documentation/guides/using-oauth"
+        }
+      ]
+    },
+    {
+      "title": "API Reference",
+      "type": "cards",
+      "cards": [
+        "battle-net",
+        "diablo-3",
+        "hearthstone",
+        "starcraft-2",
+        "world-of-warcraft",
+        "world-of-warcraft-classic"
+      ],
+      "cardPages": [
+        {
+          "title": "Battle.net",
+          "icon": "battlenet",
+          "iconColor": "primary",
+          "cardDescription": "Read about the Battle.net APIs that support OAuth authentication.",
+          "contentType": "landing",
+          "path": "documentation/battle-net"
+        },
+        {
+          "title": "Diablo III",
+          "icon": "diablo3",
+          "cardDescription": "Read about the Diablo III APIs that you can use to get player profile, act, crafting, season, and other types of data.",
+          "contentType": "landing",
+          "path": "documentation/diablo-3"
+        },
+        {
+          "title": "Hearthstone",
+          "cardDescription": "Read about the Hearthstone APIs that you can use to get card, deck, and other types of data.",
+          "icon": "hearthstone",
+          "contentType": "landing",
+          "path": "documentation/hearthstone"
+        },
+        {
+          "title": "StarCraft II",
+          "icon": "starcraft2",
+          "iconColor": "primary",
+          "cardDescription": "Read about the StarCraft II APIs that you can use to get player profile, ladder, achievement, and other types of data.",
+          "contentType": "landing",
+          "path": "documentation/starcraft-2"
+        },
+        {
+          "title": "World of Warcraft",
+          "icon": "worldofwarcraft",
+          "cardDescription": "Read about the World of Warcraft APIs that you can use to get character profile, realm, pet, creature, achievement, and other types of data.",
+          "contentType": "landing",
+          "path": "documentation/world-of-warcraft"
+        },
+        {
+          "title": "World of Warcraft Classic",
+          "icon": "worldofwarcraft",
+          "cardDescription": "Read about the World of Warcraft Classic APIs that you can use to get class, race, and other types of data.",
+          "contentType": "landing",
+          "path": "documentation/world-of-warcraft-classic"
+        }
+      ]
+    }
+  ]
+}

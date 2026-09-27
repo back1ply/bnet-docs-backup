@@ -1,0 +1,376 @@
+{
+  "resources": [
+    {
+      "name": "D3 Act API",
+      "methods": [
+        {
+          "name": "getActIndex",
+          "description": "Returns an index of acts.",
+          "path": "/d3/data/act",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        },
+        {
+          "name": "getAct",
+          "description": "Returns a single act by ID.",
+          "path": "/d3/data/act/{actId}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{actId}",
+              "description": "The ID of the act",
+              "type": "integer",
+              "required": true,
+              "defaultValue": 1
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "D3 Artisan and Recipe API",
+      "methods": [
+        {
+          "name": "getArtisan",
+          "description": "Returns a single artisan by slug.",
+          "path": "/d3/data/artisan/{artisanSlug}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{artisanSlug}",
+              "description": "The artisan slug.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "blacksmith"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        },
+        {
+          "name": "getRecipe",
+          "description": "Returns a single recipe by slug for the specified artisan.",
+          "path": "/d3/data/artisan/{artisanSlug}/recipe/{recipeSlug}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{artisanSlug}",
+              "description": "The asrtisan slug.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "blacksmith"
+            },
+            {
+              "name": "{recipeSlug}",
+              "description": "The recipe slug.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "apprentice-flamberge"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "D3 Follower API",
+      "methods": [
+        {
+          "name": "getFollower",
+          "description": "Returns a single follower by slug.",
+          "path": "/d3/data/follower/{followerSlug}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{followerSlug}",
+              "description": "The follower slug.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "templar"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "D3 Character Class and Skill API",
+      "methods": [
+        {
+          "name": "getCharacterClass",
+          "description": "Returns a single character class by slug.",
+          "path": "/d3/data/hero/{classSlug}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{classSlug}",
+              "description": "The character class slug.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "barbarian"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        },
+        {
+          "name": "getApiSkill",
+          "description": "Returns a single skill by slug for a specific character class.",
+          "path": "/d3/data/hero/{classSlug}/skill/{skillSlug}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{classSlug}",
+              "description": "The character class slug.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "barbarian"
+            },
+            {
+              "name": "{skillSlug}",
+              "description": "The skill slug.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "bash"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "D3 Item Type API",
+      "methods": [
+        {
+          "name": "getItemTypeIndex",
+          "description": "Returns an item type index.",
+          "path": "/d3/data/item-type",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        },
+        {
+          "name": "getItemType",
+          "description": "Returns a single item type by slug.",
+          "path": "/d3/data/item-type/{itemTypeSlug}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{itemTypeSlug}",
+              "description": "The item type slug.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "sword2h"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "D3 Item API",
+      "methods": [
+        {
+          "name": "getItem",
+          "description": "Returns a single item by item slug and ID.",
+          "path": "/d3/data/item/{itemSlugAndId}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{itemSlugAndId}",
+              "description": "The item slug and ID.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "corrupted-ashbringer-Unique_Sword_2H_104_x1"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "D3 Profile API",
+      "methods": [
+        {
+          "name": "getApiAccount",
+          "description": "Returns a single profile.",
+          "path": "/d3/profile/{account}/",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{account}",
+              "description": "The account BattleTag.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        },
+        {
+          "name": "getApiHero",
+          "description": "Returns a single hero.",
+          "path": "/d3/profile/{account}/hero/{heroId}",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{account}",
+              "description": "The account BattleTag.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "{heroId}",
+              "description": "The hero ID.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        },
+        {
+          "name": "getApiDetailedHeroItems",
+          "description": "Returns a list of items for the specified hero.",
+          "path": "/d3/profile/{account}/hero/{heroId}/items",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{account}",
+              "description": "The account BattleTag.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "{heroId}",
+              "description": "The hero ID.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        },
+        {
+          "name": "getApiDetailedFollowerItems",
+          "description": "Returns a list of items for the specified hero's followers",
+          "path": "/d3/profile/{account}/hero/{heroId}/follower-items",
+          "httpMethod": "GET",
+          "cnRegion": true,
+          "parameters": [
+            {
+              "name": "{account}",
+              "description": "The account BattleTag.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "{heroId}",
+              "description": "The hero ID.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "zh_CN"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "html": "<p>The Diablo III community APIs provide China-specific endpoints for Diablo III profiles.</p>\n<h2 id=\"diablo-iii-icons\">Diablo III Icons</h2>\n<p>Developers can fetch the images referenced by the D3 APIs by using the following URL template:</p>\n<p>   <code>http://media.blizzard.com/d3/icons/&lt;type&gt;/&lt;size&gt;/&lt;icon&gt;.png</code>.</p>\n<p>where: </p>\n<ul>\n<li><code>&lt;type&gt;</code> indicates the type of resource referenced; it can either be <strong>items</strong> or <strong>skills</strong>.</li>\n<li><code>&lt;size&gt;</code> for <em>items</em> must either be <strong>small</strong> or <strong>large</strong>.</li>\n<li><code>&lt;size&gt;</code> for <em>skills</em> must be <strong>21</strong>, <strong>42</strong>, or <strong>64</strong>. These values refer to the image size in pixels.</li>\n</ul>\n<h2 id=\"host-names\">Host Names</h2>\n<p>In China, requests use the following formats: </p>\n<ul>\n<li>API request paths: <code>https://gateway.battlenet.com.cn</code> </li>\n<li>OAuth requests: <code>www.battlenet.com.cn/{API path}</code></li>\n</ul>\n<h2 id=\"apis\">APIs</h2>\n<p>Diablo III supports the following APIs for the China region. For information about using the APIs, see <a href=\"/documentation/guides/getting-started\">Getting Started</a>.</p>\n"
+}

@@ -1,0 +1,119 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Game Data APIs · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../style.css"></head><body>
+<nav><a href="../../index.html">Battle.net API docs archive</a></nav>
+<h1>Game Data APIs</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/guides/game-data-apis">https://community.developer.battle.net/documentation/guides/game-data-apis</a></small></p>
+<p>Game data and profile APIs allow Battle.net to share game information via a single, well-defined interface in an easily-consumable format that has an agreed-upon schema between publisher and consumer. Developers can use game data and profile APIs to retrieve the following types of information:</p>
+<ul>
+  <li>World of Warcraft realm, Mythic dungeon, achievement lists, and WoW Token data.</li>
+  <li>Diablo III seasonal, era, and leaderboard information.</li>
+  <li>Hearthstone cards, decks, and metadata</li>
+</ul>
+
+
+<h2>Game data APIs versus profile APIs</h2>
+<p>The difference between game data and profile APIs is the type of game data they handle:</p>
+<ul>
+  <li>
+    <strong>Game data API</strong>: Stores all other reference data related to a game itself (collectively called static data) and changing, world-related data that is not connected to players (called dynamic data)</li>
+  <li>
+    <strong>Profile API</strong>: Stores data related to individuals, their characters, or accounts (collectively called profile data).</li>
+</ul>
+
+<p>Game data includes generic information like a list of abilities available to a character, server status, or leaderboards. Profile data includes the equipment on a character, an account's achievements, or a list of characters.</p>
+
+
+<h2>Game data and profile API details</h2>
+<p>The section below details specific information about game data and profile API structure, namespaces, authorization, and response format.</p>
+
+<h3>Structure</h3>
+<p>Game data and profile APIs return JSON documents directly to the consumer in the exact format and structure they are stored. The only time a document is returned in a format different than the one in which it was originally stored is when the consumer makes a request that includes a localization identifier.</p>
+
+<h3>Namespaces</h3>
+<p>Game data and profile APIs include namespaces. Namespaces allow the publishing of multiple documents to a single URL without overwriting an existing document. This allows all versions of that document to remain accessible within a specific context.</p>
+<p>Although this allows multiple instances of the same type of document to coexist, namespaces should not be considered strict or semantic versioning, even if the namespace contains a version identifier.</p>
+
+<h4>Specifying namespaces</h4>
+<p>There are currently two methods for specifying a namespace when making a request to the Game Data and Profile APIs:</p>
+
+<table>
+  <colgroup> <col/> <col/> </colgroup>
+  <thead>
+    <tr>
+      <th>
+        <p>Type</p>
+      </th>
+      <th>
+        <p>Name</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p>Query Parameter</p>
+      </td>
+      <td>
+        <p>
+          <strong>?namespace=</strong>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Request Header</p>
+      </td>
+      <td>
+        <p>
+          <strong>Battlenet-Namespace</strong>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>What data is namespaced?</h4>
+<p>All data published to the game data and profile APIs are published to namespaces. However, the naming strategies and when those names change are determined by an API's publisher.</p>
+
+<h3>Authorization</h3>
+<p>In game data and profile APIs, consumers must provide an <strong>access_token</strong> query parameter or an <strong>Authorization: Bearer &lt;token&gt;</strong> header when making a resource request.</p>
+
+<p>To obtain an <strong>access_token</strong>, follow the <a href="../../documentation/guides/using-oauth/client-credentials-flow.html">OAuth client credentials flow</a>.</p>
+
+<h3>Response format</h3>
+<p>Responses from game data and profile APIs represent a single resource in full, rather than a composite object that represents several other objects. This means that for some data, the consumer may need to make several requests to related resources by following links in the originally requested resources before they can obtain all the desired data.</p>
+
+<h4>JSON Document Links</h4>
+<p>The Game Data and Profile APIs attempt to increase discoverability by providing an object called a
+  <strong>link</strong> in addition to any numerical IDs or strings.</p>
+
+<p>These links are structured as an object that is referenced by a property named <strong>key</strong> that contains an
+  HREF field that is a URL to a related resource. However, links can also contain other commonly-referenced data, like
+  localized strings.</p>
+
+<h5>Example with Localization</h5>
+<pre><code class="language-json">{
+  "key": {
+    "href": "https://us.api.blizzard.com/data/wow/journal-instance/758?namespace=static-us"
+  },
+  "name": {
+    "en_US": "Icecrown Citadel",
+    "es_MX": "Ciudadela de la Corona de Hielo",
+    "pt_BR": "Cidadela da Coroa de Gelo",
+    "de_DE": "Die Eiskronenzitadelle",
+    "en_GB": "Icecrown Citadel",
+    "es_ES": "Ciudadela de la Corona de Hielo",
+    "fr_FR": "Citadelle de la Couronne de glace",
+    "it_IT": "Rocca della Corona di Ghiaccio",
+    "ru_RU": "Цитадель Ледяной Короны",
+    "ko_KR": "얼음왕관 성채",
+    "zh_TW": "冰冠城塞",
+    "zh_CN": "冰冠堡垒"
+  },
+  "id": 758
+}</code></pre>
+
+<h2>Throttling</h2>
+<p>API clients are limited to <strong>36,000 requests per hour</strong> at a rate of <strong>100 requests per second</strong>. Exceeding the hourly quota results in slower service until traffic decreases. Exceeding the per-second limit results in a <strong>429 error</strong> for the remainder of the second until the quota refreshes.</p>
+</body></html>

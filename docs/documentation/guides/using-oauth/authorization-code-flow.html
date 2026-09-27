@@ -1,0 +1,258 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Authorization Code Flow · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../../style.css"></head><body>
+<nav><a href="../../../index.html">Battle.net API docs archive</a></nav>
+<h1>Authorization Code Flow</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/guides/using-oauth/authorization-code-flow">https://community.developer.battle.net/documentation/guides/using-oauth/authorization-code-flow</a></small></p>
+<p>The OAuth 2.0 Authorization Code Flow allows an application to access a user's data on their behalf. This allows an
+    application to acquire more sensitive, opt-in information about a user, such as their list of World of Warcraft
+    characters, after obtaining the user's permission to do so. The Authorization Code Flow has two major parts: the
+    authorization code request and the access token request.</p>
+
+<p>For more detailed information about the Authorization Code Flow, see the <a
+        href="https://tools.ietf.org/html/rfc6749#section-1.3.1">OAuth 2.0 Authorization Framework RFC</a>.</p>
+
+<p>Currently, the authorization code flow provides access tokens for the following requests: </p>
+
+<ul>
+    <li>GET /userinfo*</li>
+    <li>GET /profile/user/wow</li>
+    <li>GET /profile/user/wow/protected-character/{realm-id}-{character-id}</li>
+    <li>GET /profile/user/wow/collections</li>
+    <li>GET /profile/user/wow/collections/pets</li>
+    <li>GET /profile/user/wow/collections/mounts</li>
+</ul>
+
+<p>* Note: <strong>GET /userinfo</strong> uses <strong>oauth.battle.net</strong> as the host for requests.</p>
+
+<h2>Obtaining Authorization from the User</h2>
+
+<p>For an authorization code request, an application needs to either redirect the browser or open a new window to the
+    authorize URI with the following query parameters:</p>
+
+<table>
+    <colgroup>
+        <col/>
+        <col/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>
+            <p>Parameter</p>
+        </th>
+        <th>
+            <p>Description</p>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <p>
+                <strong>client_id</strong>
+            </p>
+        </td>
+        <td>
+            <p>The developer's client ID.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <strong>scope</strong>
+            </p>
+        </td>
+        <td>
+            <p>The space-separated scope values to request from the player.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <strong>state</strong>
+            </p>
+        </td>
+        <td>
+            <p>A semi-random data blob to send back with when completing authorization.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <strong>redirect_uri</strong>
+            </p>
+        </td>
+        <td>
+            <p>The redirect location. Should either be <strong>https://localhost</strong> for testing or the <strong>redirect_uri</strong>
+                configured in the API Access tool.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <strong>response_type</strong>
+            </p>
+        </td>
+        <td>
+            <p>The code type being requested. For the authorization code flow, this value should be
+                <strong>code</strong>.</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p>After the player has granted authorization, the auth provider redirects the browser to the specified
+    <strong>redirect_uri</strong> and includes the provided <strong>state</strong> and a single-use <strong>code</strong> as query parameters.
+    The authorization <strong>code</strong> represents the user's agreement to allow an application to access their data. It will
+    next be exchanged by the application for an <strong>access_token</strong> for making API requests on behalf of the user.
+    As to the returned <strong>scope</strong> list, note that users can fine-tune which ones they authorize: therefore, the returned list
+    may contain fewer scopes than originally requested.</p>
+
+    <h4>Example flow</h4>
+    <table>
+      <tr>
+        <td>
+          Application redirects browser to obtain user authorization
+        </td>
+        <td>
+          <pre><code>https://oauth.battle.net/authorize
+            ?response_type=code
+            &scope=openid
+            &state=AbCdEfG
+            &redirect_uri=https://localhost
+            &client_id=&lt;CLIENT ID&gt;</code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td>User authenticates & authorizes individual scopes</td>
+        <td><i>handled by auth provider...</i></td>
+      </tr>
+      <tr>
+        <td>Auth provider redirects browser back to application</td>
+        <td>
+          <pre><code>https://localhost
+            ?code=&lt;AUTHORIZATION CODE&gt;
+            &state=AbCdEfG</code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td>Application continues</td>
+        <td><i>see next section...</i></td>
+      </tr>
+    </table>
+
+<h2>Exchanging an Authorization Code for an Access Token</h2>
+
+<p>To request an access token, the application needs to provide the following POST parameters to the token URI, using the
+    developer's client ID and secret with HTTP basic authorization:</p>
+
+<table>
+    <colgroup>
+        <col/>
+        <col/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>Term</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <p>
+                <strong>redirect_uri</strong>
+            </p>
+        </td>
+        <td>
+            <p>The same <strong>redirect_uri</strong> used when obtaining the authorization in the previous step.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <strong>grant_type</strong>
+            </p>
+        </td>
+        <td>
+            <p>The grant type being requested. For the authorization code flow, this value should be <strong>authorization_code</strong>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <strong>code</strong>
+            </p>
+        </td>
+        <td>
+            <p>The <strong>code</strong> value provided in the redirect when obtaining authorization in the previous step.</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p>The auth provider will respond with a JSON structure containing an access token. From there, applications can use the
+    access token to access any of the allowed resources on behalf of that player.</p>
+
+<h4>Example CURL command</h4>
+
+<p>This CURL command converts an authorization code into an access token for calling APIs on behalf of the client
+    application and authenticated user.</p>
+
+<pre><code class="language-bash">curl -X POST https://oauth.battle.net/token
+-u &lt;developer client id&gt;:&lt;developer secret&gt;
+-d redirect_uri=&lt;redirect URI used in authorize request&gt;
+-d grant_type=authorization_code
+-d code=&lt;authorization code&gt;
+</code></pre>
+
+<h4>Expected response</h4>
+<pre><code class="language-json">{
+    "access_token": "USVb1nGO9kwQlhNRRnI4iWVy2UV5j7M6h7",
+    "token_type": "bearer",
+    "expires_in": 86399,
+    "scope": "openid"
+}
+</code></pre>
+
+<h2>API request format</h2>
+<p>After an application retrieves an access token, it provides that token when making requests to API resources. This is done via an authorization header as follows:</p>
+
+<pre><code class="language-bash">{
+    curl --header "Authorization: Bearer <TOKEN>" REST API URL
+}
+</code></pre>
+
+<p>
+  Notes:
+  <ul>
+    <li>
+      While providing the token via a form-encoded body parameter is allowed by RFC-6750, all of our current community APIs are GET-based, so this method does not apply.
+    </li>
+    <li>
+      Providing the token in the URL via a query string parameter will no longer be supported from September 30, 2024.
+    </li>
+  </ul>
+</p>
+
+<h2>Getting a User's Account ID and BattleTag</h2>
+
+<p>The <strong>GET /userinfo</strong> endpoint returns a user's Account ID and BattleTag so that a third-party
+    site knows a player's identity when they log into the site with a Battle.net Account.</p>
+
+
+<h4>Making the request</h4>
+<p><strong>GET /userinfo</strong> requests work like other Battle.net API OAuth requests:</p>
+
+<ol>
+    <li>Retrieve an access token via the OAuth authorization code flow.</li>
+    <li>Make a GET request to <strong>https://oauth.battle.net/userinfo</strong>, providing
+      the access token in an <strong>Authorization</strong> header:
+        <br/>
+<pre><code class="language-bash">curl -X GET
+    'https://oauth.battle.net/userinfo'
+    -H 'Authorization: Bearer &lt;access token&gt;</code></pre>
+    </li>
+</ol>
+<p>The response returns the user's Account ID and BattleTag.</p>
+</body></html>

@@ -1,0 +1,39 @@
+{
+  "sections": [
+    {
+      "title": "API Reference",
+      "cards": [
+        "community-apis",
+        "community-apis-cn",
+        "game-data-apis"
+      ],
+      "cardPages": [
+        {
+          "title": "Diablo III Community APIs",
+          "menuTitle": "Community APIs",
+          "cardTitle": "Community APIs",
+          "cardDescription": "Endpoints for Diablo III player profiles, acts, crafting, classes, skills, followers, and items.",
+          "contentType": "api-reference",
+          "path": "documentation/diablo-3/community-apis"
+        },
+        {
+          "title": "Diablo III Community APIs – CN",
+          "menuTitle": "Community APIs – CN",
+          "cardTitle": "Community APIs – CN",
+          "cardDescription": "CN endpoints for Diablo III player profiles, acts, crafting, classes, skills, followers, and items.",
+          "contentType": "api-reference",
+          "path": "documentation/diablo-3/community-apis-cn"
+        },
+        {
+          "title": "Diablo III Game Data APIs",
+          "menuTitle": "Game Data APIs",
+          "cardTitle": "Game Data APIs",
+          "cardDescription": "Endpoints for Diablo III seasons, eras, and leaderboards.",
+          "contentType": "api-reference",
+          "path": "documentation/diablo-3/game-data-apis"
+        }
+      ]
+    }
+  ],
+  "html": "<p>Diablo III provides APIs to access data for such things as player profiles, seasons, and leaderboards.</p>\n<p>Before you can use the APIs, you must set up your client and secret as described in <a href=\"../guides/getting-started\">Getting Started</a>.</p>\n"
+}

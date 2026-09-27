@@ -1,0 +1,92 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>World of Warcraft Classic Search · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../../style.css"></head><body>
+<nav><a href="../../../index.html">Battle.net API docs archive</a></nav>
+<h1>World of Warcraft Classic Search</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/world-of-warcraft-classic/guides/search">https://community.developer.battle.net/documentation/world-of-warcraft-classic/guides/search</a></small></p>
+<p>The World of Warcraft game data APIs now support search functionality. Using a search endpoint returns a paginated subset of data that match your query criteria. This subset can contain a maximum of 1000 entries.</p>
+<p>Note that currently only the <code>realm</code> and <code>connected-realm</code> document types are supported.</p>
+<h2 id="querying-data">Querying Data</h2>
+<p>To perform a search operation on a set of data, use the following base URL pattern:</p>
+<pre><code>/data/wow/search/{documentType}?namespace={namespace}</code></pre><p>This URL has no fields specified, and therefore will return a paginated result of all data at the specified document type, limited to 1000 entries. To query on specific fields, add query parameters with the corresponding field names.</p>
+<pre><code>/data/wow/search/{documentType}?namespace={namespace}&amp;{field}={value}</code></pre><p>This search will return only those entries that have a matching value in the specified field. For example, to query all connected realms that have a login queue, use the following:</p>
+<pre><code>/data/wow/search/connected-realm?namespace=dynamic-us&amp;has_queue=true</code></pre><p>Additionally, you can use nested field names to query complex data structures. For example, to query all connected realms in the US Eastern timezone:</p>
+<pre><code>/data/wow/search/connected-realm?namespace=dynamic-us&amp;realms.timezone=America/New_York</code></pre><p>You may also add multiple fields as separate query string parameters. For example, to limit results to the intersection of the two result sets above, add both fields to the query string:</p>
+<pre><code>/data/wow/search/connected-realm?namespace=dynamic-us&amp;has_queue=true&amp;realms.timezone=America/New_York</code></pre><h2 id="special-parameters">Special Parameters</h2>
+<p>Some query string parameters are reserved for special operations, such as:</p>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>example</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tag<br>tags<br>_tag<br>_tags</td>
+<td>_tag=item</td>
+<td>Used only for media documents.<br/>Specifies the type of media document (item, spell, creature-display, etc) to query.</td>
+</tr>
+<tr>
+<td>_page</td>
+<td>_page=2</td>
+<td>Specifies which page of search results to return. The default page is 1.</td>
+</tr>
+<tr>
+<td>_pageSize</td>
+<td>_pageSize=500</td>
+<td>Specifies the size of each page in the result. The default value is 100 and can support a minimum of 1 or a maximum of 1000.</td>
+</tr>
+<tr>
+<td>orderby</td>
+<td>orderby=field1<br>orderby=field1:asc<br>orderby=field1:desc<br>orderby=field1,field2<br>orderby=field1:desc,field2:asc</td>
+<td>Accepts a comma-separated list of fields and sorts the result in order of those fields. <code>:asc</code> and <code>:desc</code> can be appended to each field to instruct the search endpoint to sort in ascending or descending order.</td>
+</tr>
+<tr>
+<td>namespace</td>
+<td>namespace=dynamic-us</td>
+<td>The namespace of the document. For more information on namespaces see  <a href="../../../documentation/world-of-warcraft/guides/namespaces.html">World of Warcraft Namespaces</a> and <a href="../../../documentation/world-of-warcraft-classic/guides/namespaces.html">World of Warcraft Classic Namespaces</a>.</td>
+</tr>
+</tbody></table>
+<h2 id="operations">Operations</h2>
+<p>Additional search operations can be performed as follows:</p>
+<table>
+<thead>
+<tr>
+<th>operation</th>
+<th>example</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AND</td>
+<td>str=5&amp;dex=10</td>
+<td>An implicit AND operation is performed by multiple query parameters.</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>str=5&#124;&#124;10<br>type=man&#124;&#124;bear&#124;&#124;pig</td>
+<td>An OR operation is performed by placing a pair of bars between two values.</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>race!=orc</td>
+<td>A NOT operation is performed by using a combination of an exclamation mark and equal sign between two values. You can combine the NOT and OR operations in a single statement (for example, race!=orc&#124;&#124;human).</td>
+</tr>
+<tr>
+<td>RANGE</td>
+<td>str=[2,99]<br>str=(2,99)</td>
+<td>A RANGE operation is performed only on numeric field values by using either brackets (inclusive) or parentheses (exclusive) around comma-separated minimum and maximum values.</td>
+</tr>
+<tr>
+<td>MIN</td>
+<td>str=[41,]<br>str=(41,)</td>
+<td>A MIN operation performs a minimum value check using the Range syntax.</td>
+</tr>
+<tr>
+<td>MAX</td>
+<td>str=[,77]<br>str=(,77)</td>
+<td>A MAX operation performs a maximum value check using the Range syntax.</td>
+</tr>
+</tbody></table>
+</body></html>

@@ -1,0 +1,391 @@
+{
+  "resources": [
+    {
+      "name": "Profile API",
+      "methods": [
+        {
+          "name": "Static",
+          "description": "Returns all static SC2 profile data (achievements, categories, criteria, and rewards).",
+          "path": "/sc2/static/profile/:regionId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US",
+              "options": [
+                "en_US",
+                "pt_BR",
+                "es_MX"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Metadata",
+          "description": "Returns metadata for an individual's profile.",
+          "path": "/sc2/metadata/profile/:regionId/:realmId/:profileId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":realmId",
+              "description": "The region of the profile (`1` or `2`).",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":profileId",
+              "description": "The profile ID.",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US",
+              "options": [
+                "en_US",
+                "pt_BR",
+                "es_MX"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Profile",
+          "description": "Returns data about an individual SC2 profile.",
+          "path": "/sc2/profile/:regionID/:realmID/:profileId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":realmId",
+              "description": "The region of the profile (`1` or `2`).",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":profileId",
+              "description": "The profile ID.",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US",
+              "options": [
+                "en_US",
+                "pt_BR",
+                "es_MX"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ladder Summary",
+          "description": "Returns a ladder summary for an individual SC2 profile.",
+          "path": "/sc2/profile/:regionId/:realmId/:profileId/ladder/summary",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":realmId",
+              "description": "The region of the profile (`1` or `2`).",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":profileId",
+              "description": "The profile ID.",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US",
+              "options": [
+                "en_US",
+                "pt_BR",
+                "es_MX"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ladder",
+          "description": "Returns data about an individual profile's ladder.",
+          "path": "/sc2/profile/:regionId/:realmId/:profileId/ladder/:ladderId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":realmId",
+              "description": "The region of the profile (`1` or `2`).",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":profileId",
+              "description": "The profile ID.",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":ladderId",
+              "description": "The ID of the ladder for which to retrieve data.",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US",
+              "options": [
+                "en_US",
+                "pt_BR",
+                "es_MX"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ladder API",
+      "methods": [
+        {
+          "name": "Grandmaster Leaderboard",
+          "description": "Returns ladder data for the current season's grandmaster leaderboard.",
+          "path": "/sc2/ladder/grandmaster/:regionId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "Season",
+          "description": "Returns data about the current season.",
+          "path": "/sc2/ladder/season/:regionId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Account API",
+      "methods": [
+        {
+          "name": "Player",
+          "description": "Returns metadata for an individual's account.",
+          "path": "/sc2/player/:accountId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":accountId",
+              "description": "The ID of the account for which to retrieve data.",
+              "type": "string",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Legacy API",
+      "methods": [
+        {
+          "name": "Profile",
+          "description": "Retrieves data about an individual SC2 profile.",
+          "path": "/sc2/legacy/profile/:regionId/:realmId/:profileId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":realmId",
+              "description": "The region of the profile (`1` or `2`).",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":profileId",
+              "description": "The profile ID.",
+              "type": "integer",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "Ladders",
+          "description": "Retrieves data about an individual SC2 profile's ladders.",
+          "path": "/sc2/legacy/profile/:regionId/:realmId/:profileId/ladders",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":realmId",
+              "description": "The region of the profile (`1` or `2`).",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":profileId",
+              "description": "The profile ID.",
+              "type": "integer",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "Match History",
+          "description": "Returns data about an individual SC2 profile's match history.",
+          "path": "/sc2/legacy/profile/:regionId/:realmId/:profileId/matches",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":realmId",
+              "description": "The region of the profile (`1` or `2`).",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":profileId",
+              "description": "The profile ID.",
+              "type": "integer",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "Ladder",
+          "description": "Returns data about an individual SC2 ladder.",
+          "path": "/sc2/legacy/ladder/:regionId/:ladderId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            },
+            {
+              "name": ":ladderId",
+              "description": "The ID of the ladder for which to retrieve data.",
+              "type": "integer",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "Achievements",
+          "description": "Returns data about the achievements available in SC2.",
+          "path": "/sc2/legacy/data/achievements/:regionId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "Rewards",
+          "description": "Returns data about the rewards available in SC2.",
+          "path": "/sc2/legacy/data/rewards/:regionId",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": ":regionId",
+              "description": "The region for the profile (`1`=US, `2`=EU, `3`=KO and TW, `5`=CN). ",
+              "type": "integer",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "html": "<p>StarCraft II community APIs provide endpoints for StarCraft II player profiles.</p>\n<h2 id=\"host-names\">Host Names</h2>\n<p>For all regions except China, the API host name follows the format <code>{region}.api.blizzard.com</code>, where <strong>{region}</strong> is one of <strong>us</strong> | <strong>eu</strong> | <strong>kr</strong> | <strong>tw</strong>. For China, the host name is <code>gateway.battlenet.com.cn</code>. For more information, see <a href=\"/documentation/guides/regionality-and-apis\">Regionality and APIs</a>.</p>\n\n\n<h2 id=\"parameters\">Parameters</h2>\n<p>Consider the following parameters when making StarCraft II API requests.</p>\n<ul>\n<li><p><strong>region</strong>: StarCraft II community APIs use the <strong>region</strong> parameter to set the host region in the <strong>Try It</strong> feature. <strong>Note</strong>: <code>{region}</code> does not affect StarCraft II responses, which use the <code>:regionId</code> parameter in requests. For more information, see <a href=\"/documentation/guides/regionality-and-apis\">Regionality and APIs</a>.</p>\n</li>\n<li><p><strong>accountId</strong>: You must have a player&#39;s profile ID to issue a <code>GET /player/{accountId}</code> request. You can retrieve this by issuing a <code>GET /userinfo</code> request. See <a href=\"/documentation/guides/using-oauth/authorization-code-flow\">Authorization Code Flow</a> and <a href=\"/documentation/api-reference/oauth-api\">OAuth APIs</a> for more information.</p>\n</li>\n<li><p><strong>regionId, realmId, and profileId</strong>: You can retrieve these parameters by issuing a <code>GET /player/{accountId}</code> request. For more information on region and realm IDs, see <a href=\"/documentation/guides/regionality-and-apis\">Regionality and APIs</a>.</p>\n</li>\n</ul>\n<h2 id=\"apis\">APIs</h2>\n<p>StarCraft II supports the following community APIs. For information about using the APIs, see <a href=\"/documentation/guides/getting-started\">Getting Started</a>.</p>\n"
+}

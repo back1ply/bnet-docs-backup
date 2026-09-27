@@ -1,0 +1,30 @@
+{
+  "sections": [
+    {
+      "title": "API Reference",
+      "cards": [
+        "community-apis",
+        "game-data-apis"
+      ],
+      "cardPages": [
+        {
+          "title": "StarCraft II Community APIs",
+          "menuTitle": "Community APIs",
+          "cardTitle": "Community APIs",
+          "cardDescription": "Endpoints for StarCraft II player profiles, ladder data, and achievements.",
+          "contentType": "api-reference",
+          "path": "documentation/starcraft-2/community-apis"
+        },
+        {
+          "title": "StarCraft II Game Data APIs",
+          "menuTitle": "Game Data APIs",
+          "cardTitle": "Game Data APIs",
+          "cardDescription": "Endpoints for StarCraft II league data.",
+          "contentType": "api-reference",
+          "path": "documentation/starcraft-2/game-data-apis"
+        }
+      ]
+    }
+  ],
+  "html": "<p>StarCraft II provides APIs to access data for such things as player profiles, ladders, achivements and league data.</p>\n<p>Before you can use the APIs, you must set up your client and secret as described in <a href=\"../guides/getting-started\">Getting Started</a>.</p>\n"
+}

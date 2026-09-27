@@ -1,0 +1,127 @@
+{
+  "$schema": "../../../../schema/dev-portal-page.json",
+  "title": "World of Warcraft Guides",
+  "menuTitle": "Guides",
+  "children": [
+    "namespaces",
+    "known-issues",
+    "localization",
+    "media-documents",
+    "character-renders",
+    "search"
+  ],
+  "contentType": "landing",
+  "content": {
+    "sections": [
+      {
+        "title": "Guides",
+        "cards": [
+          "namespaces",
+          "known-issues",
+          "localization",
+          "media-documents",
+          "character-renders",
+          "search"
+        ],
+        "cardPages": [
+          {
+            "title": "World of Warcraft Namespaces",
+            "menuTitle": "Namespaces",
+            "cardTitle": "Namespaces",
+            "cardDescription": "Information about the use of namespaces in World of Warcraft Game Data and Profile APIs.",
+            "path": "documentation/world-of-warcraft/guides/namespaces"
+          },
+          {
+            "title": "World of Warcraft Known Issues",
+            "menuTitle": "Known Issues",
+            "cardTitle": "Known Issues",
+            "cardDescription": "Known issues for World of Warcraft Game Data APIs.",
+            "path": "documentation/world-of-warcraft/guides/known-issues"
+          },
+          {
+            "title": "World of Warcraft Localization",
+            "menuTitle": "Localization",
+            "cardTitle": "Localization",
+            "cardDescription": "Specific information about localization in World of Warcraft Game Data APIs.",
+            "path": "documentation/world-of-warcraft/guides/localization"
+          },
+          {
+            "title": "World of Warcraft Media Documents",
+            "menuTitle": "Media Documents",
+            "cardTitle": "Media Documents",
+            "cardDescription": "Guidelines for using media documents that Game Data APIs return.",
+            "path": "documentation/world-of-warcraft/guides/media-documents"
+          },
+          {
+            "title": "World of Warcraft Character Renders",
+            "menuTitle": "Character Renders",
+            "cardTitle": "Character Renders",
+            "cardDescription": "Instructions for rendering World of Warcraft character thumbnails.",
+            "path": "documentation/world-of-warcraft/guides/character-renders"
+          },
+          {
+            "title": "World of Warcraft Search",
+            "menuTitle": "Search",
+            "cardTitle": "Search",
+            "cardDescription": "Information about the use of search in World of Warcraft Game Data APIs.",
+            "path": "documentation/world-of-warcraft/guides/search"
+          }
+        ]
+      }
+    ],
+    "html": "<p>Review the following information before using the World of Warcraft APIs.</p>\n"
+  },
+  "sections": [
+    {
+      "title": "Guides",
+      "cards": [
+        "namespaces",
+        "known-issues",
+        "localization",
+        "media-documents",
+        "search"
+      ],
+      "cardPages": [
+        {
+          "title": "World of Warcraft Classic Namespaces",
+          "menuTitle": "Namespaces",
+          "cardTitle": "Namespaces",
+          "cardDescription": "Information about the use of namespaces in World of Warcraft Classic Game Data APIs.",
+          "path": "documentation/world-of-warcraft-classic/guides/namespaces"
+        },
+        {
+          "title": "World of Warcraft Classic Known Issues",
+          "menuTitle": "Known Issues",
+          "cardTitle": "Known Issues",
+          "cardDescription": "Known issues for World of Warcraft Classic Game Data APIs.",
+          "path": "documentation/world-of-warcraft-classic/guides/known-issues"
+        },
+        {
+          "title": "World of Warcraft Classic Localization",
+          "menuTitle": "Localization",
+          "cardTitle": "Localization",
+          "cardDescription": "Specific information about localization in World of Warcraft Game Data APIs.",
+          "extend": "documentation/world-of-warcraft/guides/localization",
+          "path": "documentation/world-of-warcraft-classic/guides/localization"
+        },
+        {
+          "title": "World of Warcraft Classic Media Documents",
+          "menuTitle": "Media Documents",
+          "cardTitle": "Media Documents",
+          "cardDescription": "Guidelines for using media documents that Game Data APIs return.",
+          "extend": "documentation/world-of-warcraft/guides/media-documents",
+          "path": "documentation/world-of-warcraft-classic/guides/media-documents"
+        },
+        {
+          "title": "World of Warcraft Classic Search",
+          "menuTitle": "Search",
+          "cardTitle": "Search",
+          "cardDescription": "Information about the use of search in World of Warcraft Game Data APIs.",
+          "extend": "documentation/world-of-warcraft/guides/search",
+          "path": "documentation/world-of-warcraft-classic/guides/search"
+        }
+      ]
+    }
+  ],
+  "html": "<p>Review the following information before using the World of Warcraft Classic APIs.</p>\n"
+}

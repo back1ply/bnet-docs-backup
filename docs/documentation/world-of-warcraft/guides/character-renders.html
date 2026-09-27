@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>World of Warcraft Character Renders · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../../style.css"></head><body>
+<nav><a href="../../../index.html">Battle.net API docs archive</a></nav>
+<h1>World of Warcraft Character Renders</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/world-of-warcraft/guides/character-renders">https://community.developer.battle.net/documentation/world-of-warcraft/guides/character-renders</a></small></p>
+<p>Character render images are generated when a character logs out of World of Warcraft.</p>
+<p>The list of available renders is located at the Character Media Summary endpoint:</p>
+<pre><code>/profile/wow/character/{realm-slug}/{character-name}/character-media</code></pre><p>For more information, see the Character Media Summary endpoint documentation located on the
+<a href="../../../documentation/world-of-warcraft/profile-apis.html">World of Warcraft Profile APIs</a> page.</p>
+<h3 id="fallback-images">Fallback Images</h3>
+<p>The character render CDN can serve fallback images for avatars that are requested but do not exist.
+To request a fallback image if an avatar does not exist, add the <strong>alt</strong> query parameter to the avatar image request.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Format</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Query Parameter</td>
+<td>?alt=/shadow/avatar/{race-id}-{gender-id}.jpg</td>
+<td>?alt=/shadow/avatar/2-1.jpg</td>
+</tr>
+</tbody></table>
+<h4 id="race-id">Race ID</h4>
+<p>You can request a list of available race IDs from the Playable Races Index endpoint:</p>
+<pre><code>/data/wow/playable-race/index</code></pre><p>For more information, see the Playable Races Index endpoint documentation located on the
+<a href="../../../documentation/world-of-warcraft/game-data-apis.html">World of Warcraft Game Data APIs</a> page.</p>
+<h4 id="gender-id">Gender ID</h4>
+<p>The list of available gender IDs are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Gender</th>
+<th>Gender ID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Male</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Female</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h4 id="sample-request">Sample Request</h4>
+<p>A formatted request will look as follows:</p>
+<pre><code>{avatar-url}?alt=/shadow/avatar/{race-id}-{gender-id}.jpg</code></pre><p>Where:</p>
+<ul>
+<li><code>avatar-url</code> is the URL returned as <code>avatar_url</code> from the Character Media Summary endpoint</li>
+<li><code>race-id</code> is an ID returned as <code>races[*].id</code> from the Playable Races Index endpoint</li>
+<li><code>gender-id</code> is one of the gender IDs listed in the previous table</li>
+</ul>
+<p>Example: <a href="https://render-us.worldofwarcraft.com/character/tichondrius/00/000000000-avatar.jpg?alt=/shadow/avatar/2-1.jpg">https://render-us.worldofwarcraft.com/character/tichondrius/00/000000000-avatar.jpg?alt=/shadow/avatar/2-1.jpg</a></p>
+</body></html>

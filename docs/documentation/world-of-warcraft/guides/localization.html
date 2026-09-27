@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>World of Warcraft Localization · Battle.net API docs archive</title>
+<link rel="stylesheet" href="../../../style.css"></head><body>
+<nav><a href="../../../index.html">Battle.net API docs archive</a></nav>
+<h1>World of Warcraft Localization</h1>
+<p><small>Original: <a href="https://community.developer.battle.net/documentation/world-of-warcraft/guides/localization">https://community.developer.battle.net/documentation/world-of-warcraft/guides/localization</a></small></p>
+<h2 id="supported-locales">Supported Locales</h2>
+<p>The World of Warcraft API supports the following locales:</p>
+<table>
+<thead>
+<tr>
+<th>Locale</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>English (United States)</td>
+<td>en_US</td>
+</tr>
+<tr>
+<td>Spanish (Mexico)</td>
+<td>es_MX</td>
+</tr>
+<tr>
+<td>Portuguese</td>
+<td>pt_BR</td>
+</tr>
+<tr>
+<td>German</td>
+<td>de_DE</td>
+</tr>
+<tr>
+<td>English (Great Britain)</td>
+<td>en_GB</td>
+</tr>
+<tr>
+<td>Spanish (Spain)</td>
+<td>es_ES</td>
+</tr>
+<tr>
+<td>French</td>
+<td>fr_FR</td>
+</tr>
+<tr>
+<td>Italian</td>
+<td>it_IT</td>
+</tr>
+<tr>
+<td>Russian</td>
+<td>ru_RU</td>
+</tr>
+<tr>
+<td>Korean</td>
+<td>ko_KR</td>
+</tr>
+<tr>
+<td>Chinese (Traditional)</td>
+<td>zh_TW</td>
+</tr>
+<tr>
+<td>Chinese (Simplified)</td>
+<td>zh_CN</td>
+</tr>
+</tbody></table>
+<h2 id="default-behavior">Default Behavior</h2>
+<p>When you request a resource without specifying a locale, the API returns all supported localized values for a
+localized field. In the following example, the <code>name</code> field is a localized field.</p>
+<pre><code class="language-json">{
+  &quot;faction&quot;: {
+    &quot;type&quot;: &quot;ALLIANCE&quot;,
+    &quot;name&quot;: {
+      &quot;en_US&quot;: &quot;Alliance&quot;,
+      &quot;es_MX&quot;: &quot;Alianza&quot;,
+      &quot;pt_BR&quot;: &quot;Aliança&quot;,
+      &quot;de_DE&quot;: &quot;Allianz&quot;,
+      &quot;en_GB&quot;: &quot;Alliance&quot;,
+      &quot;es_ES&quot;: &quot;Alianza&quot;,
+      &quot;fr_FR&quot;: &quot;Alliance&quot;,
+      &quot;it_IT&quot;: &quot;Alleanza&quot;,
+      &quot;ru_RU&quot;: &quot;Альянс&quot;,
+      &quot;ko_KR&quot;: &quot;얼라이언스&quot;,
+      &quot;zh_TW&quot;: &quot;聯盟&quot;,
+      &quot;zh_CN&quot;: &quot;联盟&quot;
+    }
+  }
+}</code></pre>
+<h2 id="specifying-a-locale">Specifying a Locale</h2>
+<p>A locale is specified as a query parameter:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Format</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Query Parameter</td>
+<td>?locale={locale}</td>
+<td>?locale=ko_KR</td>
+</tr>
+</tbody></table>
+<p>If you request a resource with the <strong>locale</strong> query parameter, the API flattens localized fields,
+only including the value for the requested localization. For example, if the above JSON were requested
+with <code>?locale=ko_KR</code>, the response would be:</p>
+<pre><code class="language-json">{
+  &quot;faction&quot;: {
+    &quot;type&quot;: &quot;ALLIANCE&quot;,
+    &quot;name&quot;: &quot;얼라이언스&quot;
+  }
+}</code></pre>
+</body></html>

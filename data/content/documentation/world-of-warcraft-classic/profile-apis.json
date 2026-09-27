@@ -1,0 +1,719 @@
+{
+  "resources": [
+    {
+      "name": "Account Profile API",
+      "methods": [
+        {
+          "name": "Account Profile Summary",
+          "description": "Returns a profile summary for an account.<br/><br/>Because this endpoint provides data about the current logged-in user's World of Warcraft account, it requires an access token with the <strong>wow.profile</strong> scope acquired via the <a href=\"/documentation/guides/using-oauth/authorization-code-flow\">Authorization Code Flow</a>.",
+          "path": "/profile/user/wow",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        },
+        {
+          "name": "Protected Character Profile Summary",
+          "description": "Returns a protected profile summary for a character.<br/><br/>Because this endpoint provides data about the current logged-in user's World of Warcraft account, it requires an access token with the <strong>wow.profile</strong> scope acquired via the <a href=\"/documentation/guides/using-oauth/authorization-code-flow\">Authorization Code Flow</a>.",
+          "path": "/profile/user/wow/protected-character/{realmId}-{characterId}",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmId}",
+              "description": "The ID of the character's realm.",
+              "type": "integer",
+              "required": true,
+              "defaultValue": 1
+            },
+            {
+              "name": "{characterId}",
+              "description": "The ID of the character.",
+              "type": "integer",
+              "required": true,
+              "defaultValue": 12345
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character Appearance API",
+      "methods": [
+        {
+          "name": "Character Appearance Summary",
+          "description": "Returns a summary of a character's appearance settings.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/appearance",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character Equipment API",
+      "methods": [
+        {
+          "name": "Character Equipment Summary",
+          "description": "Returns a summary of the items equipped by a character.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/equipment",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character Hunter Pets API",
+      "methods": [
+        {
+          "name": "Character Hunter Pets Summary",
+          "description": "If the character is a hunter, returns a summary of the character's hunter pets. Otherwise, returns an HTTP 404 Not Found error.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/hunter-pets",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character Media API",
+      "methods": [
+        {
+          "name": "Character Media Summary",
+          "description": "Returns a summary of the media assets available for a character (such as an avatar render).",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/character-media",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character Profile API",
+      "methods": [
+        {
+          "name": "Character Profile Summary",
+          "description": "Returns a profile summary for a character.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        },
+        {
+          "name": "Character Profile Status",
+          "description": "Returns the status and a unique ID for a character. A client should delete information about a character from their application if any of the following conditions occur:<ul><li>an HTTP 404 Not Found error is returned</li><li>the is_valid value is false</li><li>the returned character ID doesn't match the previously recorded value for the character</li></ul>The following example illustrates how to use this endpoint:<ol><li>A client requests and stores information about a character, including its unique character ID and the timestamp of the request.</li><li>After 30 days, the client makes a request to the status endpoint to verify if the character information is still valid.</li><li>If character cannot be found, is not valid, or the characters IDs do not match, the client removes the information from their application.</li><li>If the character is valid and the character IDs match, the client retains the data for another 30 days.</li></ol>",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/status",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character PvP API",
+      "methods": [
+        {
+          "name": "Character PvP Bracket Statistics",
+          "description": "Returns the PvP bracket statistics for a character.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/pvp-bracket/{pvpBracket}",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "{pvpBracket}",
+              "description": "The PvP bracket type.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "3v3"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        },
+        {
+          "name": "Character PvP Summary",
+          "description": "Returns a PvP summary for a character.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/pvp-summary",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character Specializations API",
+      "methods": [
+        {
+          "name": "Character Specializations Summary",
+          "description": "Returns a summary of a character's specializations.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/specializations",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character Statistics API",
+      "methods": [
+        {
+          "name": "Character Statistics Summary",
+          "description": "Returns a statistics summary for a character.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/statistics",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Character Achievements API",
+      "methods": [
+        {
+          "name": "Character Achievements Summary",
+          "description": "Returns a summary of the achievements a character has completed.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/achievements",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        },
+        {
+          "name": "Character Achievement Statistics",
+          "description": "Returns a character's statistics as they pertain to achievements.",
+          "path": "/profile/wow/character/{realmSlug}/{characterName}/achievements/statistics",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{characterName}",
+              "description": "The lowercase name of the character.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "charactername"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Guild API",
+      "methods": [
+        {
+          "name": "Guild",
+          "description": "Returns a single guild by its name and realm.",
+          "path": "/data/wow/guild/{realmSlug}/{nameSlug}",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{nameSlug}",
+              "description": "The slug of the guild.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "guild-slug"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        },
+        {
+          "name": "Guild Activity",
+          "description": "Returns a single guild's activity by name and realm.",
+          "path": "/data/wow/guild/{realmSlug}/{nameSlug}/activity",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{nameSlug}",
+              "description": "The slug of the guild.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "guild-slug"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        },
+        {
+          "name": "Guild Achievements",
+          "description": "Returns a single guild's achievements by name and realm.",
+          "path": "/data/wow/guild/{realmSlug}/{nameSlug}/achievements",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{nameSlug}",
+              "description": "The slug of the guild.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "guild-slug"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        },
+        {
+          "name": "Guild Roster",
+          "description": "Returns a single guild's roster by its name and realm.",
+          "path": "/data/wow/guild/{realmSlug}/{nameSlug}/roster",
+          "httpMethod": "GET",
+          "cnRegion": false,
+          "parameters": [
+            {
+              "name": "{realmSlug}",
+              "description": "The slug of the realm.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "whitemane"
+            },
+            {
+              "name": "{nameSlug}",
+              "description": "The slug of the guild.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "guild-slug"
+            },
+            {
+              "name": "namespace",
+              "description": "The namespace to use to locate this document.",
+              "type": "string",
+              "required": true,
+              "defaultValue": "profile-classic-us"
+            },
+            {
+              "name": "locale",
+              "description": "The locale to reflect in localized data.",
+              "type": "string",
+              "required": false,
+              "defaultValue": "en_US"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "html": "<p>The World of Warcraft Classic profile APIs listed below encompass profile game data. For more information about profile game data, see <a href=\"/documentation/world-of-warcraft/guides/namespaces\">World of Warcraft Namespaces</a>.</p>\n<h2 id=\"host-names\">Host Names</h2>\n<p>For all regions except China, the API host name follows the format <code>{region}.api.blizzard.com</code>, where <strong>{region}</strong> is one of <strong>us</strong> | <strong>eu</strong> | <strong>kr</strong> | <strong>tw</strong>. For China, the host name is <code>gateway.battlenet.com.cn</code>. For more information, see <a href=\"/documentation/guides/regionality-and-apis\">Regionality and APIs</a>.</p>\n\n\n<h2 id=\"namespaces\">Namespaces</h2>\n<p>The World of Warcraft Classic profile APIs <p>A namespace is required as part of every request. Each endpoint below lists the correct namespace to use as a parameter. A namespace can be submitted as a header (<code>Battlenet-Namespace: {namespace}</code>) or as a query parameter (<code>?namespace={namespace}</code>). For more information, see <a href=\"/documentation/world-of-warcraft-classic/guides/namespaces\">World of Warcraft Namespaces</a>.</p>\n</p>\n<h2 id=\"apis\">APIs</h2>\n<p>World of Warcraft Classic supports the following profile APIs. For information about using the APIs, see <a href=\"/documentation/guides/getting-started\">Getting Started</a>.</p>\n"
+}

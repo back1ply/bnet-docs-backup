@@ -1,0 +1,60 @@
+{
+  "sections": [
+    {
+      "title": "Guides",
+      "cards": [
+        "localization",
+        "metadata",
+        "card-search",
+        "game-modes",
+        "card-backs",
+        "decks"
+      ],
+      "cardPages": [
+        {
+          "title": "Hearthstone Localization",
+          "menuTitle": "Localization",
+          "cardTitle": "Localization",
+          "cardDescription": "Information about localization in Hearthstone Game Data APIs.",
+          "path": "documentation/hearthstone/guides/localization"
+        },
+        {
+          "title": "Hearthstone Metadata",
+          "menuTitle": "Metadata",
+          "cardTitle": "Metadata",
+          "cardDescription": "How to discover extra information about non-card game data.",
+          "path": "documentation/hearthstone/guides/metadata"
+        },
+        {
+          "title": "Hearthstone Card Search",
+          "menuTitle": "Card Search",
+          "cardTitle": "Card Search",
+          "cardDescription": "Tips and best practices for searching cards.",
+          "path": "documentation/hearthstone/guides/card-search"
+        },
+        {
+          "title": "Hearthstone Game Modes",
+          "menuTitle": "Game Modes",
+          "cardTitle": "Game Modes",
+          "cardDescription": "Finding cards for different game modes.",
+          "path": "documentation/hearthstone/guides/game-modes"
+        },
+        {
+          "title": "Hearthstone Card Backs",
+          "menuTitle": "Card Backs",
+          "cardTitle": "Card Backs",
+          "cardDescription": "How to search for Hearthstone card backs.",
+          "path": "documentation/hearthstone/guides/card-backs"
+        },
+        {
+          "title": "Retrieving Hearthstone Decks",
+          "menuTitle": "Retrieving Decks",
+          "cardTitle": "Retrieving Decks",
+          "cardDescription": "How to find and use Hearthstone deck codes.",
+          "path": "documentation/hearthstone/guides/decks"
+        }
+      ]
+    }
+  ],
+  "html": "<p>Review the following information before using the Hearthstone APIs.</p>\n"
+}

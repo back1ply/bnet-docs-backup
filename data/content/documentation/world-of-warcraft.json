@@ -1,0 +1,85 @@
+{
+  "sections": [
+    {
+      "title": "Guides",
+      "cards": [
+        "guides/namespaces",
+        "guides/known-issues",
+        "guides/localization",
+        "guides/media-documents",
+        "guides/character-renders",
+        "guides/search"
+      ],
+      "cardPages": [
+        {
+          "title": "World of Warcraft Namespaces",
+          "menuTitle": "Namespaces",
+          "cardTitle": "Namespaces",
+          "cardDescription": "Information about the use of namespaces in World of Warcraft Game Data and Profile APIs.",
+          "path": "documentation/world-of-warcraft/guides/namespaces"
+        },
+        {
+          "title": "World of Warcraft Known Issues",
+          "menuTitle": "Known Issues",
+          "cardTitle": "Known Issues",
+          "cardDescription": "Known issues for World of Warcraft Game Data APIs.",
+          "path": "documentation/world-of-warcraft/guides/known-issues"
+        },
+        {
+          "title": "World of Warcraft Localization",
+          "menuTitle": "Localization",
+          "cardTitle": "Localization",
+          "cardDescription": "Specific information about localization in World of Warcraft Game Data APIs.",
+          "path": "documentation/world-of-warcraft/guides/localization"
+        },
+        {
+          "title": "World of Warcraft Media Documents",
+          "menuTitle": "Media Documents",
+          "cardTitle": "Media Documents",
+          "cardDescription": "Guidelines for using media documents that Game Data APIs return.",
+          "path": "documentation/world-of-warcraft/guides/media-documents"
+        },
+        {
+          "title": "World of Warcraft Character Renders",
+          "menuTitle": "Character Renders",
+          "cardTitle": "Character Renders",
+          "cardDescription": "Instructions for rendering World of Warcraft character thumbnails.",
+          "path": "documentation/world-of-warcraft/guides/character-renders"
+        },
+        {
+          "title": "World of Warcraft Search",
+          "menuTitle": "Search",
+          "cardTitle": "Search",
+          "cardDescription": "Information about the use of search in World of Warcraft Game Data APIs.",
+          "path": "documentation/world-of-warcraft/guides/search"
+        }
+      ]
+    },
+    {
+      "title": "API Reference",
+      "cards": [
+        "game-data-apis",
+        "profile-apis"
+      ],
+      "cardPages": [
+        {
+          "title": "World of Warcraft Game Data APIs",
+          "menuTitle": "Game Data APIs",
+          "cardTitle": "Game Data APIs",
+          "cardDescription": "Endpoints for World of Warcraft Mythics, realms, and other game information.",
+          "contentType": "api-reference",
+          "path": "documentation/world-of-warcraft/game-data-apis"
+        },
+        {
+          "title": "World of Warcraft Profile APIs",
+          "menuTitle": "Profile APIs",
+          "cardTitle": "Profile APIs",
+          "cardDescription": "Endpoints for World of Warcraft character profiles, including Mythic Keystone profiles and seasonal profiles.",
+          "contentType": "api-reference",
+          "path": "documentation/world-of-warcraft/profile-apis"
+        }
+      ]
+    }
+  ],
+  "html": "<p>World of Warcraft provides APIs to access data for such things as player profiles, realms, achievements and other game information.</p>\n<p>Before you can use the APIs, you must set up your client and secret as described in <a href=\"../guides/getting-started\">Getting Started</a>.</p>\n"
+}

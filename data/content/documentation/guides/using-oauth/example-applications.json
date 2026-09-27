@@ -1,0 +1,3 @@
+{
+  "html": "<p>Battle.net provides the following example applications that illustrate using OAuth 2:</p>\n<ul>\n  <li>\n    <a href=\"https://github.com/Blizzard/java-signature-generator\">Java Signature Generator</a>\n  </li>\n  <li>\n    <a href=\"https://github.com/Blizzard/node-signature-generator\">Node.js Signature Generator</a>\n  </li>\n  <li>\n    <a href=\"https://github.com/Blizzard/ruby-signature-generator\">Ruby Signature Generator</a>\n  </li>\n</ul>\n\n<p>The community has also created example applications that use OAuth 2. To see a collection of community examples, please visit the Blizzard API Discussion forum <a href=\"https://us.forums.blizzard.com/en/blizzard/t/oauth-2-community-implementation-examples/84\">thread</a>.<p>\n"
+}

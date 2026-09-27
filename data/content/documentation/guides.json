@@ -1,0 +1,56 @@
+{
+  "sections": [
+    {
+      "type": "cards",
+      "title": "Read Me First",
+      "cards": [
+        "getting-started",
+        "using-oauth"
+      ],
+      "cardPages": [
+        {
+          "title": "Getting Started",
+          "cardTitle": "Getting Started",
+          "cardDescription": "Learn how to set up your OAuth client ID and secret, manage your clients, and make API requests.",
+          "cardImage": "api/pages/page-images/getting-started-card.321b4bde340cac2f71e03417a6f7e075.png",
+          "path": "documentation/guides/getting-started"
+        },
+        {
+          "title": "Using OAuth",
+          "cardTitle": "Using OAuth",
+          "cardDescription": "Learn about Battle.net APIs OAuth requirements and libraries. Understand authorization code and client credential flows for your sites.",
+          "cardImage": "api/pages/page-images/using-oauth-card.c0dfd1d818b959904aaecd70510a465b.png",
+          "path": "documentation/guides/using-oauth"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "title": "Featured Guides",
+      "cards": [
+        "game-data-apis",
+        "community-apis",
+        "regionality-and-apis"
+      ],
+      "cardPages": [
+        {
+          "title": "Game Data APIs",
+          "cardDescription": "Get the basics on how Game Data APIs work to get information like Mythic Dungeon leaderboards.",
+          "path": "documentation/guides/game-data-apis"
+        },
+        {
+          "title": "Community APIs",
+          "cardDescription": "Read about Community APIs and how they get information about player profiles and other data.",
+          "path": "documentation/guides/community-apis"
+        },
+        {
+          "title": "Regionality and APIs",
+          "cardTitle": "Regionality and APIs",
+          "cardDescription": "Discover the ways Battle.net uses region-based concepts to deliver game data to consumers.",
+          "path": "documentation/guides/regionality-and-apis"
+        }
+      ]
+    }
+  ],
+  "html": "<p>The APIs provide developers with tools to enrich any fan site with information about World of Warcraft, StarCraft II, Diablo III, and Hearthstone. Here are just a few ways developers can integrate API data into their websites:</p>\n<ul>\n<li>Add World of Warcraft character achievements, guild information, and Mythic Dungeon leaderboards.</li>\n<li>Display player profiles, ladder information, and match history for StarCraft II.</li>\n<li>Retrieve Diablo III player hero information, season leaderboards, and character class and skill information.</li>\n<li>Return information about Hearthstone cards and decks.</li>\n</ul>\n<p>Before you can use our public APIs, you need to set up an OAuth client ID and secret. After that, check out our documentation and the API requests to access game and community data.</p>\n"
+}

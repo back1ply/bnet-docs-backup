@@ -1,0 +1,149 @@
+{
+  "path": "",
+  "page": {
+    "title": "Battle.net Community Developer Portal",
+    "description": "Welcome to the Battle.net Community Developer Portal: the place where you can integrate with our APIs and connect with other developers from around the world to craft best-in-class experiences for your community.",
+    "heroTitle": "Forge Your Path",
+    "heroDescription": "As a community developer.",
+    "heroActionLinkText": "Get Started Now",
+    "heroActionHref": "/access/clients",
+    "heroImage": "api/pages/page-images/index-hero.a93d040222f21b1c869e773a04f46c1e.jpg",
+    "heroImageBackgroundColor": "#140e13",
+    "contentType": "landing",
+    "path": ""
+  },
+  "expandable": true,
+  "expanded": true,
+  "children": [
+    {
+      "path": "documentation",
+      "page": {
+        "title": "Documentation",
+        "description": "Explore our APIs and discover the powerful experiences you can craft. Read our guides to learn how to integrate and get started accessing our data.",
+        "heroTitle": "Discover Power",
+        "heroDescription": "Learn how to access our data.",
+        "heroImage": "api/pages/page-images/documentation-hero.9554e043cf6922ec6f1bd009e76e7681.jpg",
+        "heroImageBackgroundColor": "#09090c",
+        "cardTitle": "View API Documentation",
+        "cardDescription": "Read our Getting Started guide and learn how to use OAuth to access our APIs. Discover how our APIs work, and all the amazing things you can do.",
+        "cardImage": "api/pages/page-images/documentation-card.e946b65c5821072d3ad75297fdb05f18.jpg",
+        "cardIcon": "book",
+        "contentType": "landing",
+        "path": "documentation"
+      },
+      "expandable": true,
+      "expanded": true,
+      "children": [
+        {
+          "path": "documentation/guides",
+          "page": {
+            "title": "Using APIs",
+            "cardLinkText": "View All Guides",
+            "contentType": "landing",
+            "path": "documentation/guides"
+          },
+          "expandable": true
+        },
+        {
+          "path": "documentation/battle-net",
+          "page": {
+            "title": "Battle.net",
+            "icon": "battlenet",
+            "iconColor": "primary",
+            "cardDescription": "Read about the Battle.net APIs that support OAuth authentication.",
+            "contentType": "landing",
+            "path": "documentation/battle-net"
+          },
+          "expandable": true
+        },
+        {
+          "path": "documentation/diablo-3",
+          "page": {
+            "title": "Diablo III",
+            "icon": "diablo3",
+            "cardDescription": "Read about the Diablo III APIs that you can use to get player profile, act, crafting, season, and other types of data.",
+            "contentType": "landing",
+            "path": "documentation/diablo-3"
+          },
+          "expandable": true
+        },
+        {
+          "path": "documentation/hearthstone",
+          "page": {
+            "title": "Hearthstone",
+            "cardDescription": "Read about the Hearthstone APIs that you can use to get card, deck, and other types of data.",
+            "icon": "hearthstone",
+            "contentType": "landing",
+            "path": "documentation/hearthstone"
+          },
+          "expandable": true,
+          "expanded": true,
+          "children": [
+            {
+              "path": "documentation/hearthstone/guides",
+              "page": {
+                "title": "Hearthstone Guides",
+                "menuTitle": "Guides",
+                "contentType": "landing",
+                "path": "documentation/hearthstone/guides"
+              },
+              "expandable": true
+            },
+            {
+              "path": "documentation/hearthstone/game-data-apis",
+              "page": {
+                "title": "Hearthstone Game Data APIs",
+                "menuTitle": "Game Data APIs",
+                "cardTitle": "Game Data APIs",
+                "cardDescription": "Endpoints for Hearthstone cards, decks, and metadata.",
+                "contentType": "api-reference",
+                "path": "documentation/hearthstone/game-data-apis"
+              }
+            }
+          ]
+        },
+        {
+          "path": "documentation/starcraft-2",
+          "page": {
+            "title": "StarCraft II",
+            "icon": "starcraft2",
+            "iconColor": "primary",
+            "cardDescription": "Read about the StarCraft II APIs that you can use to get player profile, ladder, achievement, and other types of data.",
+            "contentType": "landing",
+            "path": "documentation/starcraft-2"
+          },
+          "expandable": true
+        },
+        {
+          "path": "documentation/world-of-warcraft",
+          "page": {
+            "title": "World of Warcraft",
+            "icon": "worldofwarcraft",
+            "cardDescription": "Read about the World of Warcraft APIs that you can use to get character profile, realm, pet, creature, achievement, and other types of data.",
+            "contentType": "landing",
+            "path": "documentation/world-of-warcraft"
+          },
+          "expandable": true
+        },
+        {
+          "path": "documentation/world-of-warcraft-classic",
+          "page": {
+            "title": "World of Warcraft Classic",
+            "icon": "worldofwarcraft",
+            "cardDescription": "Read about the World of Warcraft Classic APIs that you can use to get class, race, and other types of data.",
+            "contentType": "landing",
+            "path": "documentation/world-of-warcraft-classic"
+          },
+          "expandable": true
+        },
+        {
+          "path": "documentation/streaming-provider-service",
+          "page": {
+            "title": "Streaming Provider Service Summary",
+            "path": "documentation/streaming-provider-service"
+          }
+        }
+      ]
+    }
+  ]
+}
