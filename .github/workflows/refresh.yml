@@ -1,27 +1,60 @@
-name: Refresh docs
+name: Refresh and deploy
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: '0 6 * * 1' # Mondays 06:00 UTC
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  refresh:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node fetch.mjs
-      # Commit only when upstream content changed; the snapshot date alone is not a change.
-      - run: |
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      # Scheduled and manual runs pull fresh data; pushes just rebuild what is committed.
+      - name: Fetch docs
+        if: github.event_name != 'push'
+        run: node fetch.mjs
+      - name: Commit data changes
+        if: github.event_name != 'push'
+        run: |
           git add -A data
           if git diff --cached --quiet; then echo "No upstream changes"; exit 0; fi
-          git add -A docs
           git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
             commit -m "Refresh docs snapshot $(date -u +%F)"
           git push
+
+      - run: pip install -r requirements.txt
+      - run: node build.mjs
+      - run: mkdocs build --strict -f build/mkdocs.yml
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,38 @@
+/* Battle.net blue on a deep navy header. */
+:root {
+  --md-primary-fg-color: #0f1d33;
+  --md-primary-fg-color--light: #1a2d4d;
+  --md-primary-fg-color--dark: #09121f;
+  --md-accent-fg-color: #148eff;
+}
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #111823;
+  --md-typeset-a-color: #5cb0ff;
+}
+[data-md-color-scheme="default"] { --md-typeset-a-color: #0b6fd6; }
+
+/* Endpoint line: verb badge + path. */
+.md-typeset .endpoint {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem;
+  margin: .4rem 0 .8rem;
+}
+.md-typeset .endpoint code {
+  font-size: .8rem; padding: .25rem .5rem;
+  background: var(--md-code-bg-color); border-left: 3px solid var(--md-accent-fg-color);
+  word-break: break-all;
+}
+.md-typeset .endpoint .verb {
+  font: 700 .65rem/1 var(--md-code-font-family);
+  padding: .35rem .5rem; border-radius: .2rem;
+  background: #1f7a4d; color: #fff;
+}
+.md-typeset .endpoint .verb.post { background: #b35c00; }
+.md-typeset .endpoint .cn {
+  font-size: .7rem; color: var(--md-default-fg-color--light);
+}
+.md-typeset .source { font-size: .72rem; color: var(--md-default-fg-color--light); }
+
+/* Each endpoint heading gets a divider so long reference pages scan easily. */
+.md-typeset h3 { border-top: 1px solid var(--md-default-fg-color--lightest); padding-top: 1rem; }
+.md-typeset table:not([class]) { font-size: .72rem; }
+.md-typeset table:not([class]) td:not(:last-child) code { white-space: nowrap; }

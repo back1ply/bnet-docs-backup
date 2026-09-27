@@ -1,0 +1,53 @@
+# Shared site config. build.mjs writes build/mkdocs.yml, which inherits this and adds the nav.
+site_name: Battle.net API Docs Archive
+site_url: https://back1ply.github.io/bnet-docs-backup/
+site_description: Unofficial archive of the Battle.net Community Developer Portal API documentation.
+repo_url: https://github.com/back1ply/bnet-docs-backup
+repo_name: back1ply/bnet-docs-backup
+edit_uri: ""
+use_directory_urls: false
+
+theme:
+  name: material
+  font:
+    text: Public Sans
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - toc.follow
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+extra_css:
+  - assets/extra.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
