@@ -6,6 +6,8 @@ The portal now requires a Battle.net login just to read the docs. This repo keep
 
 **Browse it:** https://back1ply.github.io/bnet-docs-backup/
 
+**For AI tools:** [`llms-full.txt`](https://back1ply.github.io/bnet-docs-backup/llms-full.txt) holds the whole archive in one compact Markdown file, about 42k tokens. There is also an index, [`llms.txt`](https://back1ply.github.io/bnet-docs-backup/llms.txt). Point an assistant at these rather than at `data/`.
+
 > Not affiliated with, endorsed by, or supported by Blizzard Entertainment. All documentation content is © Blizzard Entertainment. Using the APIs themselves is governed by the [Blizzard Developer API Terms of Use](https://www.blizzard.com/en-us/legal/a2989b50-5f16-43b1-abec-2ae17cc09dd6/blizzard-developer-api-terms-of-use).
 
 ## What's covered
@@ -46,7 +48,8 @@ The portal is a single-page app. Its login wall only applies to the UI, while it
 
 1. `fetch.mjs` walks the navigation tree from `documentation` and merges the lazy responses into a single `data/navigation.json`. It drops the copy of each API page's endpoints that the navigation embeds, because `content/` already holds the full page. Each page's content is saved unchanged into `data/content/`.
 2. `build.mjs` reads `data/` and writes one Markdown page per portal page into `build/docs/`. It also writes `build/mkdocs.yml`, which inherits `mkdocs.base.yml` and adds a sidebar that follows the portal's own order and labels. Links between archived pages are rewritten to point at the local copies. Other portal links go to the live site.
-3. [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) turns that into the static site, with tabs per game, full-text search and a light/dark toggle.
+3. `build.mjs` also writes `llms-full.txt`, which is built for token efficiency. Guide HTML becomes plain Markdown, and each endpoint takes one line plus a params line. Parameters that repeat with the same description, such as `namespace` and `locale`, are defined once at the top. Pages whose text or endpoints repeat an earlier page point to it instead of copying it.
+4. [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) turns that into the static site, with tabs per game, full-text search and a light/dark toggle.
 
 ## Building locally
 
