@@ -18,6 +18,15 @@
       ],
       "matchCurrentVersion": "!/^v?0[.]/",
       "automerge": true
+    },
+    {
+      "description": "Python version bumps: own PR, never auto-merged. A grouped 3.11 -> 3.15 bump broke builds before dependencies shipped wheels.",
+      "matchDepNames": [
+        "python"
+      ],
+      "groupName": "Python",
+      "groupSlug": "python",
+      "automerge": false
     }
   ],
   "osvVulnerabilityAlerts": true
